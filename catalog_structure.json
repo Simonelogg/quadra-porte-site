@@ -1,0 +1,1148 @@
+{
+  "num_pages": 86,
+  "collections": [
+    "Collezione",
+    "Collezione  Compact",
+    "Collezione  Filo Muro",
+    "Collezione  Flat",
+    "Collezione  Insert",
+    "Collezione  Pantografato",
+    "domstico e per sottolineare la",
+    "più semplici e lineari"
+  ],
+  "pages": [
+    {
+      "page_number": 1,
+      "text_length": 0,
+      "first_lines": [],
+      "collections_mentioned": [],
+      "has_text": false
+    },
+    {
+      "page_number": 2,
+      "text_length": 372,
+      "first_lines": [
+        "Bianco - opaco",
+        "Noce Nazionale - opaco - verticale",
+        "Ciliegio - opaco - verticale",
+        "Avorio - opaco",
+        "Noce Tanganica - opaco - verticale"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 3,
+      "text_length": 440,
+      "first_lines": [
+        "Bianco Matrix - scratch - orizzontale",
+        "Noce Canaletto - scratch - orizzontale",
+        "Palissandro Bianco - scratch - orizzontale",
+        "Palissandro Blu - scratch - orizzontale",
+        "Bianco Frassino - scratch - orizzontale"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 4,
+      "text_length": 449,
+      "first_lines": [
+        "Le  nostre Finiture",
+        "Rovere Tranché - scratch verticale",
+        "Olmo Grigio - scratch - orizzontale",
+        "Penelope - tinta unica",
+        "N.B.: I colori delle finiture e dei materiali raffigurati in queste pagine, potrebbero non rispecchiare quelli reali."
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 5,
+      "text_length": 84,
+      "first_lines": [
+        "14",
+        "Collezione  Flat",
+        "Le  nostre Finiture",
+        "Rovere Spazzolato - scratch - orizzontale"
+      ],
+      "collections_mentioned": [
+        "Collezione  Flat"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 6,
+      "text_length": 136,
+      "first_lines": [
+        "Collezione",
+        "FLAT",
+        "Apertura / Opening",
+        "Battente",
+        "Finitura / Finish"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 7,
+      "text_length": 249,
+      "first_lines": [
+        "18",
+        "Collezione",
+        "FLAT",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 8,
+      "text_length": 314,
+      "first_lines": [
+        "20",
+        "Collezione",
+        "FLAT",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 9,
+      "text_length": 246,
+      "first_lines": [
+        "22",
+        "Collezione",
+        "FLAT",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 10,
+      "text_length": 1904,
+      "first_lines": [
+        "Nella versione dei telai idro la Quadra S.r.l. ha voluto",
+        "orientarsi al raggiungimento di standard qualitativi, in -",
+        "novativi e performanti; si basa sostanzialmente sulla",
+        "scelta di legno di abete come base per tutto  il  corpo",
+        "del  telaio e impiego di speciale HDF idrofugo/idrore -"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 11,
+      "text_length": 376,
+      "first_lines": [
+        "Collezione",
+        "FLAT",
+        "Apertura / Ope-",
+        "ning",
+        "Finitura / Finish"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 12,
+      "text_length": 294,
+      "first_lines": [
+        "28",
+        "29",
+        "Collezione",
+        "FLAT",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 13,
+      "text_length": 263,
+      "first_lines": [
+        "Collezione",
+        "FLAT",
+        "Apertura / Opening",
+        "Battente",
+        "Finitura / Finish"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 14,
+      "text_length": 195,
+      "first_lines": [
+        "33",
+        "Collezione",
+        "Flat",
+        "Mod. Vetro Design",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 15,
+      "text_length": 516,
+      "first_lines": [
+        "34",
+        "35",
+        "Il telaio complanare",
+        "“Filo-coprifilo” è una versione di",
+        "telaio, che permette di avere sullo"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 16,
+      "text_length": 272,
+      "first_lines": [
+        "36 37",
+        "Collezione",
+        "FLAT",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 17,
+      "text_length": 268,
+      "first_lines": [
+        "38",
+        "Collezione",
+        "FLAT",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 18,
+      "text_length": 85,
+      "first_lines": [
+        "9190",
+        "4140",
+        "Pensate per integrarsi armoniosamente in",
+        "ogni progetto d’interior design."
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 19,
+      "text_length": 348,
+      "first_lines": [
+        "Sistema rototraslante",
+        "Le porte rotrotraslanti sono porte in cui l’anta gira su se stessa,",
+        "riuscendo a traslare a spinta su entrambi i lati grazie ad un per -",
+        "no. In questo modo, scorrendo verso il bordo del vano, si riduce",
+        "tantissimo l’ingombro rispetto a una tradizionale porta a battente"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 20,
+      "text_length": 92,
+      "first_lines": [
+        "42",
+        "54",
+        "Porta a libro asimmetrica",
+        "porta realizzabile in tutte le finiture",
+        "Sistemi di apertura"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 21,
+      "text_length": 62,
+      "first_lines": [
+        "46 47",
+        "finiture studiate per dialogare",
+        "con la luce e gli spazi."
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 22,
+      "text_length": 332,
+      "first_lines": [
+        "Sistema Magic",
+        "L’innovativo sistema scorrevole invisi -",
+        "bile per porte in legno e vetro esterno",
+        "muro. Un sistema pluribrevettato, un",
+        "prodotto che integra la magia del mini-"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 23,
+      "text_length": 383,
+      "first_lines": [
+        "Porta Saloon",
+        "La porta Saloon viene utilizzata in tutti",
+        "quei casi in cui la porta deve stare nor-",
+        "malmente chiusa, ma che sia apribile",
+        "con il semplice passaggio della perso -"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 24,
+      "text_length": 945,
+      "first_lines": [
+        "52",
+        "Il lavoro di oggi produce risultati al passo  coi tempi. I nostri",
+        "sforzi, sia creativi che produttivi, sono finalizzati alla soddisfa -",
+        "zione del cliente, obiettivo primario del nostro impegno quo -",
+        "tidiano."
+      ],
+      "collections_mentioned": [
+        "Collezione  Insert"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 25,
+      "text_length": 55,
+      "first_lines": [
+        "54 55",
+        "L’equilibrio perfetto traestetica e funzionalità."
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 26,
+      "text_length": 497,
+      "first_lines": [
+        "56",
+        "Collezione",
+        "INSERT",
+        "Mod. Isert 3 Alluminio",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 27,
+      "text_length": 172,
+      "first_lines": [
+        "Collezione",
+        "INSERT",
+        "Mod. Isert 1V Alluminio",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 28,
+      "text_length": 168,
+      "first_lines": [
+        "Collezione",
+        "INSERT",
+        "Mod. Isert 2v Alluminio",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 29,
+      "text_length": 180,
+      "first_lines": [
+        "Collezione",
+        "INSERT",
+        "Mod. Isert 2 Alluminio",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 30,
+      "text_length": 182,
+      "first_lines": [
+        "Collezione",
+        "INSERT",
+        "Mod. Isert 1v Onda Swarovsky",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 31,
+      "text_length": 198,
+      "first_lines": [
+        "Collezione",
+        "INSERT",
+        "Mod. Isert 2v Onda Swarovsky",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 32,
+      "text_length": 206,
+      "first_lines": [
+        "Collezione",
+        "INSERT",
+        "Mod. Isert 10R Onda",
+        "Alluminio",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 33,
+      "text_length": 699,
+      "first_lines": [
+        "7170",
+        "Le porte interne sono elementi non trascurabili in una casa, ser-",
+        "vono a dividere o ad unire gli ambienti e possono diventare es -",
+        "senziali nella definizione dello stile d’arredo. Scegliere una porta",
+        "significa combinare al meglio “Design” e funzionalità. Ogni pic -"
+      ],
+      "collections_mentioned": [
+        "Collezione  Compact"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 34,
+      "text_length": 75,
+      "first_lines": [
+        "7372",
+        "Soluzioni progettate per chi ricerca",
+        "qualità, estetica e affidabilità."
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 35,
+      "text_length": 167,
+      "first_lines": [
+        "Collezione",
+        "Compact",
+        "Mod. C2",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 36,
+      "text_length": 332,
+      "first_lines": [
+        "76",
+        "Collezione",
+        "Compact",
+        "Mod. C1",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 37,
+      "text_length": 337,
+      "first_lines": [
+        "Collezione",
+        "Compact",
+        "Mod. Compact Plus",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 38,
+      "text_length": 0,
+      "first_lines": [],
+      "collections_mentioned": [],
+      "has_text": false
+    },
+    {
+      "page_number": 39,
+      "text_length": 182,
+      "first_lines": [
+        "Collezione",
+        "Compact",
+        "Mod. Vittoria",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 40,
+      "text_length": 255,
+      "first_lines": [
+        "Collezione",
+        "Compact",
+        "Mod. Incastri 3V",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 41,
+      "text_length": 258,
+      "first_lines": [
+        "86",
+        "Collezione",
+        "Compact",
+        "Mod. Incastri 4V",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 42,
+      "text_length": 174,
+      "first_lines": [
+        "88",
+        "Collezione",
+        "Compact",
+        "Mod. Compact Plus",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 43,
+      "text_length": 60,
+      "first_lines": [
+        "90 91",
+        "Porte che arredano, accolgono",
+        "e valorizzano gli spazi."
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 44,
+      "text_length": 177,
+      "first_lines": [
+        "Collezione",
+        "Compact",
+        "Mod. Vetro e Traversi",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 45,
+      "text_length": 29,
+      "first_lines": [
+        "9594",
+        "Collezione  Pantografato"
+      ],
+      "collections_mentioned": [
+        "Collezione  Pantografato"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 46,
+      "text_length": 6,
+      "first_lines": [
+        "97",
+        "97"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 47,
+      "text_length": 196,
+      "first_lines": [
+        "99",
+        "98",
+        "Collezione",
+        "Pantografato",
+        "Mod. 119"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 48,
+      "text_length": 773,
+      "first_lines": [
+        "101",
+        "100",
+        "Collezione",
+        "Pantografato",
+        "Mod. 125"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione",
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 49,
+      "text_length": 553,
+      "first_lines": [
+        "Laccato",
+        "Pantografato/inciso",
+        "Collezione",
+        "Laccato Inciso",
+        "Mod. 119"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "domstico e per sottolineare la"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 50,
+      "text_length": 337,
+      "first_lines": [
+        "105",
+        "Collezione",
+        "Laccato Inciso",
+        "Mod. Straight",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione",
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 51,
+      "text_length": 178,
+      "first_lines": [
+        "Collezione",
+        "Laminato",
+        "Pantografato",
+        "Mod. Elite",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 52,
+      "text_length": 209,
+      "first_lines": [
+        "Collezione",
+        "Laccato",
+        "Pantografato",
+        "Mod. 124",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 53,
+      "text_length": 200,
+      "first_lines": [
+        "Collezione",
+        "Laccato",
+        "Pantografato",
+        "Mod. 117",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 54,
+      "text_length": 195,
+      "first_lines": [
+        "Collezione",
+        "Laccato",
+        "Pantografato",
+        "Mod. 107",
+        "Apertura / Opening"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 55,
+      "text_length": 201,
+      "first_lines": [
+        "119",
+        "Collezione",
+        "Pantografato",
+        "Apertura / Opening",
+        "Battente"
+      ],
+      "collections_mentioned": [
+        "Collezione"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 56,
+      "text_length": 423,
+      "first_lines": [
+        "Collezione  Filo Muro",
+        "Oltre alle linee ed",
+        "ai colori, tantissime",
+        "sono le soluzioni di",
+        "apertura e   con figu-"
+      ],
+      "collections_mentioned": [
+        "Collezione  Filo Muro",
+        "più semplici e lineari"
+      ],
+      "has_text": true
+    },
+    {
+      "page_number": 57,
+      "text_length": 6,
+      "first_lines": [
+        "119118"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 58,
+      "text_length": 6,
+      "first_lines": [
+        "121120"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 59,
+      "text_length": 17,
+      "first_lines": [
+        "123",
+        "Le  Blindate"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 60,
+      "text_length": 7,
+      "first_lines": [
+        "125124"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 61,
+      "text_length": 0,
+      "first_lines": [],
+      "collections_mentioned": [],
+      "has_text": false
+    },
+    {
+      "page_number": 62,
+      "text_length": 0,
+      "first_lines": [],
+      "collections_mentioned": [],
+      "has_text": false
+    },
+    {
+      "page_number": 63,
+      "text_length": 0,
+      "first_lines": [],
+      "collections_mentioned": [],
+      "has_text": false
+    },
+    {
+      "page_number": 64,
+      "text_length": 0,
+      "first_lines": [],
+      "collections_mentioned": [],
+      "has_text": false
+    },
+    {
+      "page_number": 65,
+      "text_length": 0,
+      "first_lines": [],
+      "collections_mentioned": [],
+      "has_text": false
+    },
+    {
+      "page_number": 66,
+      "text_length": 233,
+      "first_lines": [
+        "136",
+        "rock 3 filomuro",
+        "marcatura CE",
+        "abbattimento acustico 37 dB",
+        "trasmittanza termica U=1,8 W/m² K"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 67,
+      "text_length": 2424,
+      "first_lines": [
+        "138",
+        "rock 3",
+        "filomuro",
+        "La porta blindata filomuro Quadra srl,",
+        "con cerniere a scomparsa (apertura a"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 68,
+      "text_length": 986,
+      "first_lines": [
+        "arco",
+        "Sicurezza e design, forza ed ele-",
+        "ganza, questi sono gli elementi",
+        "distintivi delle porte blindate ad",
+        "arco realizzate con una cura ed"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 69,
+      "text_length": 280,
+      "first_lines": [
+        "142",
+        "rock 3 luce",
+        "marcatura CE",
+        "certificazioni opzionali:",
+        "abbattimento acustico 34 dB"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 70,
+      "text_length": 3959,
+      "first_lines": [
+        "rock 3 luce",
+        "Blindatura in acciaio zincato spessore",
+        "10/10, irrobustita con tubolari di rin-",
+        "forzo verticali ed orizzontali che danno",
+        "rigidità all’intera struttura."
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 71,
+      "text_length": 8,
+      "first_lines": [
+        "146",
+        "147"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 72,
+      "text_length": 348,
+      "first_lines": [
+        "148",
+        "rock 3",
+        "2 ante asimmetriche",
+        "marcatura CE",
+        "abbattimento acustico 35 dB"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 73,
+      "text_length": 4202,
+      "first_lines": [
+        "rock 3",
+        "2 ante asimmetriche",
+        "La doppia anta è realizzabile sui mo-",
+        "delliRock 3 e Rock 4, sia nella versione",
+        "simmetrica che asimmetrica."
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 74,
+      "text_length": 1589,
+      "first_lines": [
+        "pannelli di",
+        "rivestimento in",
+        "PVC da 6 mm e",
+        "da 12mm",
+        "La nuova generazione di pelli-"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 75,
+      "text_length": 928,
+      "first_lines": [
+        "pannelli di",
+        "rivestimento in",
+        "allumino",
+        "I rivestimenti in alluminio",
+        "sono composti da due lamine"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 76,
+      "text_length": 964,
+      "first_lines": [
+        "pannelli di",
+        "rivestimento",
+        "pantografati",
+        "I pannelli pantografati sono",
+        "realizzati in multistrato ma-"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 77,
+      "text_length": 1345,
+      "first_lines": [
+        "Gemme",
+        "AlmaSpecchio",
+        "QuarzoPerla",
+        "Petra  - Pantografato con inserti in pietra",
+        "Arabic"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 78,
+      "text_length": 200,
+      "first_lines": [
+        "160",
+        "maniglieria",
+        "blindati",
+        "alluminio anodizzato bronzo",
+        "bronze"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 79,
+      "text_length": 102,
+      "first_lines": [
+        "SEZIONE",
+        "TECNICA",
+        "162",
+        "163",
+        "Rock 3"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 80,
+      "text_length": 8,
+      "first_lines": [
+        "164",
+        "165"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 81,
+      "text_length": 109,
+      "first_lines": [
+        "166",
+        "Rock 3 filomuro",
+        "montaggio Rock 3 filomuro intonaco interno",
+        "assemblage of Rock 3 model inside plaster",
+        "167"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 82,
+      "text_length": 417,
+      "first_lines": [
+        "168",
+        "maniglie",
+        "e accessori",
+        "Maniglia Quadra",
+        "cromo satinato"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 83,
+      "text_length": 892,
+      "first_lines": [
+        "170",
+        "Linee",
+        "cromo satinato",
+        "Cerchio 1",
+        "cromo satinato"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 84,
+      "text_length": 81,
+      "first_lines": [
+        "172",
+        "Controtelai per porte",
+        "scorrevoli a scomparsa",
+        "173",
+        "Controtelai per porte"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 85,
+      "text_length": 500,
+      "first_lines": [
+        "101 106105104103102",
+        "107 112111110109108",
+        "113 118117116115114",
+        "119 124123122121120",
+        "125 130129128127126"
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    },
+    {
+      "page_number": 86,
+      "text_length": 111,
+      "first_lines": [
+        "Le immagini riportate nel presente catalogo sono indicative, per i colori reali attenersi alla cartella colori."
+      ],
+      "collections_mentioned": [],
+      "has_text": true
+    }
+  ]
+}
