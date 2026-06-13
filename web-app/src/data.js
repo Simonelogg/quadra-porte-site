@@ -136,7 +136,7 @@ export const collections = [
     name: "Collezione FLAT",
     tagline: "Il design complanare e la purezza delle linee",
     description: "Il cuore dell'innovazione Quadra: il telaio complanare Filo-coprifilo permette di allineare anta, telaio e coprifilo sullo stesso piano, eliminando gli spessori a vista. È prodotta con un'anima in legno di abete e rivestimento idrofugo HDF per la massima resistenza all'umidità.",
-    image: "/images/flat.jpg",
+    image: import.meta.env.BASE_URL + "images/flat.jpg",
     features: [
       "Telaio Idro (Abete + HDF idrorepellente 3mm)",
       "Coprifilo folding ad alta resistenza",
@@ -153,7 +153,7 @@ export const collections = [
     name: "Collezione INSERT",
     tagline: "Customizzazione geometrica ed eleganza metallica",
     description: "Progettata per chi desidera personalizzare ogni dettaglio. La collezione si distingue per i profili in alluminio inseriti con precisione millimetrica nell'anta ed opzioni con cristalli Swarovski che creano giochi di luce unici.",
-    image: "/images/insert.jpg",
+    image: import.meta.env.BASE_URL + "images/insert.jpg",
     features: [
       "Inserti in alluminio spazzolato",
       "Opzioni con cristalli Swarovski",
@@ -170,7 +170,7 @@ export const collections = [
     name: "Collezione COMPACT",
     tagline: "L'incontro perfetto tra artigianalità e modernità",
     description: "Una collezione classica ma reinterpretata. Soluzioni studiate per unire robustezza strutturale e design accogliente, ideale per chi cerca una porta solida con finiture legno calde ed affidabili nel tempo.",
-    image: "/images/compact.jpg",
+    image: import.meta.env.BASE_URL + "images/compact.jpg",
     features: [
       "Incastri strutturali rinforzati",
       "Soluzioni con vetro e traversi",
@@ -187,7 +187,7 @@ export const collections = [
     name: "Collezione PANTOGRAFATO",
     tagline: "Tridimensionalità incisa e lavorazioni artistiche",
     description: "La collezione Pantografato unisce il calore delle laccature tradizionali a incisioni tridimensionali effettuate con macchinari a controllo numerico (CNC). I disegni geometrici e curvilinei scolpiscono la porta dando carattere ad ogni ambiente.",
-    image: "/images/pantografato.jpg",
+    image: import.meta.env.BASE_URL + "images/pantografato.jpg",
     features: [
       "Incisioni tridimensionali a pantografo",
       "Laccatura opaca ad alto spessore",
@@ -204,7 +204,7 @@ export const collections = [
     name: "Collezione FILO MURO & BLINDATE",
     tagline: "Minimalismo estremo e sicurezza certificata",
     description: "Porte filo muro concepite per sparire nella parete, integrate con telai invisibili in alluminio. E le porte blindate serie Rock 3, che garantiscono la massima sicurezza con una cura artigianale nei rivestimenti e nelle sagomature.",
-    image: "/images/filomuro.jpg",
+    image: import.meta.env.BASE_URL + "images/filomuro.jpg",
     features: [
       "Blindati con Classe Antieffrazione RC3",
       "Abbattimento acustico certificato 30dB - 38dB",

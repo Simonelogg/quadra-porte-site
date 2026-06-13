@@ -91,7 +91,7 @@ export default function FAQ() {
       <div 
         className="pt-40 pb-20 px-6 md:px-12 relative overflow-hidden"
         style={{
-          backgroundImage: "url('/images/flat.jpg')",
+          backgroundImage: `url('${import.meta.env.BASE_URL}images/flat.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
@@ -248,7 +248,7 @@ export default function FAQ() {
       {/* ── FOOTER ── */}
       <footer className="bg-[#1d1d1f] text-white py-12 px-6 text-center">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center gap-4">
-          <img src="/logo.png" alt="Quadra Produzioni Industriali" className="h-16 w-auto grayscale brightness-200 opacity-80" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Quadra Produzioni Industriali" className="h-16 w-auto grayscale brightness-200 opacity-80" />
           <p className="text-[#aaa] text-sm">L'arte di dividere ed unire spazi.</p>
           <div className="flex gap-6 text-sm font-bold text-white/60">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

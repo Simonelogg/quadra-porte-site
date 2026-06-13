@@ -119,7 +119,7 @@ export default function Specs() {
           <div className="grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
             <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl">
               <img 
-                src="/images/flat.jpg" 
+                src={`${import.meta.env.BASE_URL}images/flat.jpg`}
                 alt="Telaio Idrorepellente Quadra" 
                 className="w-full h-auto opacity-90 transition-transform duration-700 hover:scale-105"
               />
@@ -321,7 +321,7 @@ export default function Specs() {
 
             <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl">
               <img 
-                src="/images/filomuro.jpg" 
+                src={`${import.meta.env.BASE_URL}images/filomuro.jpg`}
                 alt="Porte Blindate Rock Quadra" 
                 className="w-full h-auto opacity-90 transition-transform duration-700 hover:scale-105"
               />

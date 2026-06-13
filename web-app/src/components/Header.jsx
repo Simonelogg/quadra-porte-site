@@ -19,7 +19,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }) {
       <header className="fixed top-6 left-0 right-0 z-50 px-4 flex justify-center pointer-events-none">
         <div className="w-full max-w-5xl glass-pill px-6 md:px-8 py-3 md:py-4 flex items-center justify-between pointer-events-auto">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="Quadra Produzioni Industriali" className="h-12 md:h-16 w-auto" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Quadra Produzioni Industriali" className="h-12 md:h-16 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">

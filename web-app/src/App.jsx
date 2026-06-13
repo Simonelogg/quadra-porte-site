@@ -173,7 +173,7 @@ export default function App() {
 
       <footer className="bg-[#050505] text-white py-16 px-4 text-center relative z-10 border-t border-white/5">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center">
-          <img src="/logo.png" alt="Quadra Produzioni Industriali" className="h-24 w-auto mb-6 brightness-0 invert opacity-90" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Quadra Produzioni Industriali" className="h-24 w-auto mb-6 brightness-0 invert opacity-90" />
           <p className="text-[#86868b] text-sm mb-10 font-medium tracking-wide">L'arte di dividere ed unire spazi.</p>
           <div className="flex gap-8 text-xs font-bold text-white/50 mb-10 uppercase tracking-widest">
             <a href="#" className="hover:text-[#ea5d1a] transition-colors">Privacy Policy</a>
