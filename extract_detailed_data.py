@@ -1,6 +1,6 @@
 import pypdf
 
-pdf_path = "/Users/sviluppologuasto/Desktop/Quadra Porte/Quadra Catlago ultimo.pdf"
+pdf_path = "./Quadra Catlago ultimo.pdf"
 reader = pypdf.PdfReader(pdf_path)
 
 key_pages = {

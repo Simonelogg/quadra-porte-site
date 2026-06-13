@@ -1,204 +1,126 @@
-import React from 'react';
-import { collections, finishes, openings } from '../data';
-import { DoorOpen, RotateCw, MoveRight, TrendingUp, BookOpen, Check, Play, Pause } from 'lucide-react';
+import React, { useState } from 'react';
+import { collections, finishes } from '../data';
+import { Check, MoveHorizontal } from 'lucide-react';
 
-const iconMap = {
-  DoorOpen: <DoorOpen size={20} />,
-  RotateCw: <RotateCw size={20} />,
-  MoveRight: <MoveRight size={20} />,
-  TrendingUp: <TrendingUp size={20} />,
-  BookOpen: <BookOpen size={20} />
+const collectionDataSheets = {
+  flat: {
+    headline: "Purezza complanare e resistenza all'umidità.",
+    pdfCopy: "Il cuore dell'innovazione Quadra: il telaio complanare 'Filo-coprifilo' permette di allineare anta, telaio e coprifili sullo stesso piano nel lato interno, eliminando spessori e sporgenze a vista. La struttura si basa sulla scelta di legno di abete come base per il corpo del telaio ed un impiego di speciale HDF idrofugo dello spessore di 3mm sull'intero perimetro, garantendo un'eccellente resistenza alla penetrazione di acqua ed umidità.",
+    techSpecs: [
+      { label: "Anima Interna", value: "Legno di abete naturale" },
+      { label: "Fianchi e Bordi", value: "HDF Idrofugo 3mm" },
+      { label: "Coprifilo", value: "Sistema folding integrato" },
+      { label: "Finiture", value: "Castagno Bianco, Rovere, Coffee" }
+    ]
+  },
+  insert: {
+    headline: "Customizzazione geometrica ed eleganza millimetrica.",
+    pdfCopy: "L'attività produttiva della Collezione Insert ruota attorno a un concetto chiave: la flessibilità costruttiva. Questa serie è pensata come un vero oggetto di arredo su misura, caratterizzata da profili in alluminio satinato inseriti con precisione millimetrica sul pannello porta ed opzioni arricchite con veri cristalli Swarovski incastonati a mano per creare giochi di luce unici.",
+    techSpecs: [
+      { label: "Dettagli", value: "Inserti in alluminio satinato" },
+      { label: "Geometria", value: "Linee complanari di design" },
+      { label: "Opzioni", value: "Cristalli Swarovski incastonati" },
+      { label: "Anima", value: "Legno tamburato spessorato" }
+    ]
+  },
+  compact: {
+    headline: "Solido incontro tra falegnameria e design.",
+    pdfCopy: "Soluzioni progettate per chi ricerca la massima affidabilità strutturale unita a un'estetica calda e tradizionale. La collezione Compact reinterpreta le classiche porte con incastri strutturali rinforzati, specchiature in rilievo e traverse di raccordo in vero legno. Rappresenta la porta solida per eccellenza, con finiture ad alto spessore stabili nel tempo.",
+    techSpecs: [
+      { label: "Struttura", value: "Legno massiccio con traversi" },
+      { label: "Dettagli", value: "Specchiature classiche bugnate" },
+      { label: "Verniciatura", value: "Finitura essenza ad alto spessore" },
+      { label: "Guarnizioni", value: "Mescola espansa antirumore" }
+    ]
+  },
+  pantografato: {
+    headline: "Tridimensionalità scolpita a controllo numerico.",
+    pdfCopy: "La collezione unisce il calore delle laccature tradizionali ad alto spessore a lavorazioni curvilinee tridimensionali realizzate con pantografi CNC ad altissima precisione. I motivi scavati sul pannello creano un gioco di ombre e rilievi raffinati, esaltati dalla finitura materica brevettata 'Penelope' o dalle laccature opache vellutate.",
+    techSpecs: [
+      { label: "Lavorazione", value: "Incisione tridimensionale CNC" },
+      { label: "Finitura", value: "Laccatura poliuretanica opaca" },
+      { label: "Opzione", value: "Texture esclusiva Penelope" },
+      { label: "Bordi", value: "Laccati in continuo" }
+    ]
+  },
+  filomuro: {
+    headline: "Integrazione totale a parete e sicurezza certificata.",
+    pdfCopy: "Concepite per sparire interamente nella parete, le porte filo muro Quadra si integrano a filo parete tramite telai invisibili in alluminio estruso. E per la sicurezza esterna, la serie blindata Rock 3 garantisce una classe di antieffrazione RC3 con abbattimento acustico certificato fino a 38dB, coniugando un design minimale a una solidità d'acciaio.",
+    techSpecs: [
+      { label: "Telaio", value: "Alluminio estruso scomparsa totale" },
+      { label: "Classe Sicurezza", value: "Blindato Classe RC3" },
+      { label: "Acustica", value: "Abbattimento acustico 30-38dB" },
+      { label: "Spessore lamiera", value: "Doppia lamiera d'acciaio" }
+    ]
+  }
 };
 
-// Volumetric CSS 3D Door Panel Component
-function DoorPanel({ 
-  width, 
-  height, 
-  depth = 20, 
-  selectedFinish, 
-  hasHandle = false, 
-  hasOblo = false, 
-  hasFlushPull = false,
-  hasKnob = false,
-  hasHinges = false,
-  hingesSide = 'left',
-  hasShadow = false,
-  isDoorOpen = false,
-  children
-}) {
-  const halfDepth = depth / 2;
+// Simplified static 2D Door Panel representation
+function DoorPanel({ selectedFinish, collectionId }) {
+  
+  // Render details based on selected collection
+  const renderCollectionDetails = () => {
+    switch (collectionId) {
+      case 'insert':
+        return (
+          <div className="absolute inset-0 flex flex-col justify-around py-20 pointer-events-none z-10">
+            <div className="h-[4px] w-full bg-gradient-to-r from-neutral-400 via-neutral-200 to-neutral-400 opacity-90 border-y border-black/15 shadow-sm"></div>
+            <div className="h-[4px] w-full bg-gradient-to-r from-neutral-400 via-neutral-200 to-neutral-400 opacity-90 border-y border-black/15 shadow-sm"></div>
+            <div className="h-[4px] w-full bg-gradient-to-r from-neutral-400 via-neutral-200 to-neutral-400 opacity-90 border-y border-black/15 shadow-sm"></div>
+          </div>
+        );
+      case 'compact':
+        return (
+          <div className="absolute inset-x-6 top-8 bottom-8 flex flex-col gap-6 pointer-events-none z-10">
+            <div className="flex-1 border-[3px] border-black/30 rounded bg-black/10 shadow-[inset_0_2px_6px_rgba(0,0,0,0.45)] flex items-center justify-center">
+              <div className="w-[92%] h-[92%] border border-white/5 bg-transparent"></div>
+            </div>
+            <div className="flex-1 border-[3px] border-black/30 rounded bg-black/10 shadow-[inset_0_2px_6px_rgba(0,0,0,0.45)] flex items-center justify-center">
+              <div className="w-[92%] h-[92%] border border-white/5 bg-transparent"></div>
+            </div>
+          </div>
+        );
+      case 'pantografato':
+        return (
+          <div className="absolute inset-0 p-8 pointer-events-none z-10">
+            <div className="w-full h-full border border-black/30 rounded shadow-[inset_0_1px_5px_rgba(0,0,0,0.35)] flex flex-col justify-center gap-12 items-center">
+              <div className="w-[85%] h-[1px] bg-black/40 shadow-[0_1px_0_rgba(255,255,255,0.05)]"></div>
+              <div className="w-[85%] h-[1px] bg-black/40 shadow-[0_1px_0_rgba(255,255,255,0.05)]"></div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div style={{ width: `${width}px`, height: `${height}px`, transformStyle: 'preserve-3d', position: 'relative' }}>
+    <div 
+      className="relative w-full max-w-[340px] h-[450px] md:h-[600px] rounded-sm border border-white/10 overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.5)] transition-all duration-300"
+      style={{
+        background: selectedFinish.bgPattern || selectedFinish.color
+      }}
+    >
+      {/* Light gradient highlight */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-black/25 via-transparent to-white/15 pointer-events-none z-0"></div>
       
-      {/* DYNAMIC SHADOW CAST ON THE FLOOR - optimized with radial gradient to avoid layout thrashing and repaints from blur filters */}
-      {hasShadow && (
-        <div 
-          className="absolute bottom-0 left-0 w-full h-[300px] bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.65)_0%,rgba(0,0,0,0)_70%)]"
-          style={{ 
-            transformOrigin: 'top', 
-            transform: 'rotateX(-90deg) translateZ(0.1px)',
-            opacity: isDoorOpen ? 0.6 : 0,
-            transition: 'opacity 1.6s ease',
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden'
-          }}
-        ></div>
-      )}
-
-      {/* FRONT FACE */}
+      {/* Dynamic reflection shine overlay */}
       <div 
-        className="absolute inset-0 w-full h-full border border-white/5 shadow-[0_0_20px_rgba(0,0,0,0.5)] flex items-center justify-center"
+        className="absolute inset-0 pointer-events-none z-20"
         style={{
-          background: selectedFinish.bgPattern || selectedFinish.color,
-          transform: `translateZ(${halfDepth}px)`,
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden'
+          background: 'linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.1) 50%, transparent 65%)',
+          mixBlendMode: 'overlay'
         }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10 pointer-events-none"></div>
-        {/* Oblò (Circular glass window) */}
-        {hasOblo && (
-          <div className="w-[70px] h-[70px] rounded-full border-2 border-neutral-700 bg-cyan-900/30 backdrop-blur-sm shadow-[inset_0_0_10px_rgba(0,0,0,0.8)] flex items-center justify-center">
-            <div className="w-[66px] h-[66px] rounded-full border border-cyan-400/20 bg-gradient-to-tr from-transparent to-white/15"></div>
-          </div>
-        )}
+      />
+
+      {/* Collection specific visual elements */}
+      {renderCollectionDetails()}
+
+      {/* Elegant satin steel lever handle */}
+      <div className="absolute top-[50%] right-[24px] w-[6px] h-[45px] bg-neutral-800 rounded shadow-md z-30">
+        {/* Handle Lever */}
+        <div className="absolute top-[3px] right-0 w-[55px] h-[6px] bg-gradient-to-r from-neutral-300 via-neutral-100 to-neutral-400 rounded-l shadow-sm transform translate-x-[-1px]"></div>
       </div>
-
-      {/* BACK FACE */}
-      <div 
-        className="absolute inset-0 w-full h-full shadow-[inset_0_0_80px_rgba(0,0,0,0.9)] flex items-center justify-center"
-        style={{
-          background: selectedFinish.bgPattern || selectedFinish.color,
-          transform: `rotateY(180deg) translateZ(${halfDepth}px)`,
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden'
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40"></div>
-        {/* Oblò (Circular glass window) */}
-        {hasOblo && (
-          <div className="w-[70px] h-[70px] rounded-full border-2 border-neutral-800 bg-cyan-950/30 backdrop-blur-sm shadow-[inset_0_0_10px_rgba(0,0,0,0.8)]"></div>
-        )}
-      </div>
-
-      {/* LEFT EDGE */}
-      <div 
-        className="absolute top-0 h-full border-y border-white/5"
-        style={{
-          width: `${depth}px`,
-          left: `-${halfDepth}px`,
-          transform: 'rotateY(-90deg)',
-          background: selectedFinish.color,
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden'
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40"></div>
-        {/* Metal Hinges on Left Edge */}
-        {hasHinges && hingesSide === 'left' && (
-          <>
-            <div className="absolute top-[15%] right-0 w-[4px] h-12 bg-gradient-to-r from-gray-300 to-gray-500 rounded-l-sm shadow-xl"></div>
-            <div className="absolute top-[50%] right-0 w-[4px] h-12 bg-gradient-to-r from-gray-300 to-gray-500 rounded-l-sm shadow-xl"></div>
-            <div className="absolute bottom-[15%] right-0 w-[4px] h-12 bg-gradient-to-r from-gray-300 to-gray-500 rounded-l-sm shadow-xl"></div>
-          </>
-        )}
-      </div>
-
-      {/* RIGHT EDGE */}
-      <div 
-        className="absolute top-0 h-full border-y border-white/5"
-        style={{
-          width: `${depth}px`,
-          right: `-${halfDepth}px`,
-          transform: 'rotateY(90deg)',
-          background: selectedFinish.color,
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden'
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-l from-black/80 to-black/20"></div>
-        {/* Metal Hinges on Right Edge */}
-        {hasHinges && hingesSide === 'right' && (
-          <>
-            <div className="absolute top-[15%] left-0 w-[4px] h-12 bg-gradient-to-r from-gray-300 to-gray-500 rounded-r-sm shadow-xl"></div>
-            <div className="absolute top-[50%] left-0 w-[4px] h-12 bg-gradient-to-r from-gray-300 to-gray-500 rounded-r-sm shadow-xl"></div>
-            <div className="absolute bottom-[15%] left-0 w-[4px] h-12 bg-gradient-to-r from-gray-300 to-gray-500 rounded-r-sm shadow-xl"></div>
-          </>
-        )}
-      </div>
-
-      {/* TOP EDGE */}
-      <div 
-        className="absolute left-0 w-full" 
-        style={{ 
-          height: `${depth}px`, 
-          top: `-${halfDepth}px`, 
-          transform: 'rotateX(90deg)', 
-          background: selectedFinish.color,
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden'
-        }}
-      >
-        <div className="absolute inset-0 bg-black/60"></div>
-      </div>
-
-      {/* BOTTOM EDGE */}
-      <div 
-        className="absolute left-0 w-full" 
-        style={{ 
-          height: `${depth}px`, 
-          bottom: `-${halfDepth}px`, 
-          transform: 'rotateX(-90deg)', 
-          background: selectedFinish.color,
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden'
-        }}
-      >
-        <div className="absolute inset-0 bg-black/90"></div>
-      </div>
-
-      {/* 3D LEVER HANDLE */}
-      {hasHandle && (
-        <div 
-          className="absolute top-[50%] right-[30px] w-[8px] h-[55px] bg-neutral-800 rounded-sm"
-          style={{ transform: `translateZ(${halfDepth + 0.2}px) translateY(-50%)`, transformStyle: 'preserve-3d', willChange: 'transform' }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-400 to-gray-600 rounded-sm shadow-md"></div>
-          {/* Handle Lever */}
-          <div className="absolute top-2 left-0 h-[8px] bg-gradient-to-b from-gray-200 to-gray-400 shadow-xl rounded-l-full"
-               style={{ width: '90px', transformOrigin: 'right', transform: 'translateZ(14px) translateX(-100%)' }}
-          ></div>
-          {/* Handle Stem */}
-          <div className="absolute top-2 left-0 w-[14px] h-[8px] bg-gray-500"
-               style={{ transformOrigin: 'right', transform: 'rotateY(-90deg) translateZ(8px) translateX(-100%)' }}
-          ></div>
-        </div>
-      )}
-
-      {/* FLUSH RECESSED PULL HANDLE (For sliding Magic door) */}
-      {hasFlushPull && (
-        <div 
-          className="absolute top-[50%] right-[25px] w-[18px] h-[55px] rounded-md border border-neutral-800 bg-neutral-900 flex items-center justify-center shadow-md"
-          style={{ transform: `translateZ(${halfDepth + 0.3}px) translateY(-50%)`, backfaceVisibility: 'hidden' }}
-        >
-          {/* Recessed Cup */}
-          <div className="w-[8px] h-[40px] rounded bg-black shadow-[inset_0_2px_4px_rgba(0,0,0,1)]"></div>
-        </div>
-      )}
-
-      {/* BIFOLD KNOB (For Libro) */}
-      {hasKnob && (
-        <div 
-          className="absolute top-[50%] right-[10px] w-[12px] h-[12px] rounded-full bg-gradient-to-tr from-neutral-600 to-neutral-400 shadow-lg"
-          style={{ transform: `translateZ(${halfDepth + 0.3}px) translateY(-50%)`, transformStyle: 'preserve-3d' }}
-        >
-          {/* Knob Stem */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[6px] h-[10px] bg-neutral-700" style={{ transform: 'translateZ(-5px)' }}></div>
-        </div>
-      )}
-
-      {children}
     </div>
   );
 }
@@ -206,362 +128,147 @@ function DoorPanel({
 export default function Configurator({ 
   selectedCol, setSelectedCol, 
   selectedFinish, setSelectedFinish, 
-  selectedOpening, setSelectedOpening,
-  isDoorOpen, setIsDoorOpen,
   onRequestQuote
 }) {
+  const [hasScrolledCol, setHasScrolledCol] = useState(false);
   
   const availableFinishes = finishes.filter(f => selectedCol.availableFinishes.includes(f.id));
-  const availableOpenings = openings.filter(o => selectedCol.availableOpenings.includes(o.id));
-
-  // Volumetric CSS 3D Mechanics with Z-Origin to prevent frame clipping
-  // Door thickness is 40px (Z from -20px to +20px). Front face is at +20px.
-  const getDoorMechanics = () => {
-    if (selectedOpening.id === 'magic') {
-      return {
-        transform: isDoorOpen ? 'translateZ(32px) translateX(102%)' : 'translateZ(32px) translateX(0px)',
-        origin: '50% 50% 0px'
-      };
-    }
-    
-    if (selectedOpening.id === 'rototraslante') {
-      return {
-        transform: isDoorOpen ? 'translateX(-35%) rotateY(-90deg)' : 'translateX(0px) rotateY(0deg)',
-        origin: '35% 50% 10px'
-      };
-    }
-    
-    // Default (battente)
-    return {
-      transform: isDoorOpen ? 'rotateY(-90deg) translateZ(0px)' : 'rotateY(0deg) translateZ(0px)',
-      origin: '0px 50% 10px'
-    };
-  };
-
-  const mechanics = getDoorMechanics();
+  const docSheet = collectionDataSheets[selectedCol.id] || collectionDataSheets.flat;
 
   return (
-    <section id="configuratore" className="py-20 md:py-32 bg-[#111112] relative overflow-hidden">
+    <section id="configuratore" className="py-12 md:py-32 bg-transparent text-[#f5f5f7] relative overflow-hidden min-h-screen">
       
-      {/* Background Lighting */}
-      <div className="absolute top-[20%] right-[-10%] w-[800px] h-[800px] bg-[#ea5d1a] opacity-5 blur-[150px] pointer-events-none rounded-full z-0"></div>
+      {/* Soft orange color highlights */}
+      <div className="absolute top-[30%] left-[-10%] w-[600px] h-[600px] bg-[#ea5d1a]/5 opacity-30 blur-[150px] pointer-events-none rounded-full z-0"></div>
 
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 md:px-8">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12">
         
-        <div className="mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-[4rem] font-display font-bold tracking-tighter text-white mb-4">
-            Studio <span className="text-[#ea5d1a]">Configurazione.</span>
-          </h2>
-          <div className="w-16 h-[2px] bg-[#ea5d1a] mb-6"></div>
-          <p className="text-white/50 text-lg md:text-xl max-w-2xl font-medium">
-            Simulatore Volumetrico in Tempo Reale. Esplora le cinematiche d'apertura con vera fisica 3D.
+        {/* Typographic Title */}
+        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/5 pb-10">
+          <div>
+            <p className="text-[#ea5d1a] font-bold text-xs uppercase tracking-[0.2em] mb-2">Selettore Finiture</p>
+            <h2 className="text-4xl md:text-[3.5rem] font-display font-bold tracking-tight leading-none text-white">
+              Studio <span className="text-[#ea5d1a]">Configurazione.</span>
+            </h2>
+          </div>
+          <p className="text-[#86868b] text-sm md:text-base max-w-sm font-light leading-relaxed">
+            Seleziona la collezione Quadra e visualizza istantaneamente le finiture legno e le laccature in tempo reale.
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+        {/* Showroom split screen */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-start">
           
-          {/* LEFT: TRUE 3D STAGE */}
-          <div className="w-full lg:w-[55%] relative min-h-[600px] lg:min-h-[850px] flex items-center justify-center bg-black/20 rounded-[3rem] border border-white/5 overflow-hidden shadow-2xl">
-            
-            {/* Stage Floor and Lights */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-              <div className="absolute bottom-0 w-[80%] h-[150px] bg-white/5 blur-[50px] rounded-[100%] transform perspective-[500px] rotateX(60deg)"></div>
-              <div className="absolute top-[30%] w-[400px] h-[400px] bg-[#ea5d1a]/10 blur-[100px] rounded-full"></div>
-            </div>
-
-            {/* THE 3D SCENE CONTAINER */}
-            <div 
-              className="relative w-full max-w-[340px] h-[700px] perspective-[2000px] z-10"
-              style={{ perspectiveOrigin: '70% 30%' }}
-            >
-              
-              {/* THE WALL & FRAME */}
-              <div 
-                className="absolute inset-0 w-full h-full"
-                style={{ 
-                  transformStyle: 'preserve-3d', 
-                  transform: 'rotateX(3deg) rotateY(-25deg)', // Enhanced 3D angle
-                  transition: 'transform 1s ease-out',
-                  willChange: 'transform'
-                }}
-              >
-                
-                {/* Outer Wall (Backdrop) pushed slightly back to Z=19.8px to prevent z-fighting with frame/door */}
-                <div className="absolute -inset-[800px] border-[800px] border-[#18181a] opacity-95 shadow-2xl" style={{ transform: 'translateZ(19.8px)' }}>
-                   {/* Subtle wall texture */}
-                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-                </div>
-
-                {/* THE DOOR FRAME (STIPITE) - creating an 80px deep hole backwards from Z=20px */}
-                {/* Left Frame Wall */}
-                <div className="absolute left-0 top-0 h-full bg-[#0a0a0b] shadow-[inset_-20px_0_40px_rgba(0,0,0,0.9)]" style={{ width: '80px', transformOrigin: 'left', transform: 'translateZ(20px) rotateY(-90deg)' }}></div>
-                {/* Right Frame Wall */}
-                <div className="absolute right-0 top-0 h-full bg-[#2a2a2c] shadow-[inset_20px_0_40px_rgba(0,0,0,0.9)]" style={{ width: '80px', transformOrigin: 'right', transform: 'translateZ(20px) rotateY(90deg)' }}></div>
-                {/* Top Frame Wall */}
-                <div className="absolute top-0 left-0 w-full bg-[#1a1a1c] shadow-[inset_0_-20px_40px_rgba(0,0,0,0.9)]" style={{ height: '80px', transformOrigin: 'top', transform: 'translateZ(20px) rotateX(90deg)' }}></div>
-                {/* Floor track (Threshold) */}
-                <div className="absolute bottom-0 left-0 w-full bg-[#050505]" style={{ height: '80px', transformOrigin: 'bottom', transform: 'translateZ(20px) rotateX(-90deg)' }}>
-                  <div className="absolute top-1/2 left-0 w-full h-[2px] bg-white/10"></div>
-                </div>
-
-                {/* THE VOLUMETRIC DOOR ASSEMBLY */}
-                {selectedOpening.id === 'saloon' ? (
-                  <>
-                    {/* LEFT LEAF */}
-                    <div 
-                      className="absolute cursor-pointer group"
-                      style={{
-                        left: '2px',
-                        top: '3px',
-                        transformOrigin: '0px 50% 10px',
-                        transform: isDoorOpen ? 'rotateY(-90deg) translateZ(0px)' : 'rotateY(0deg) translateZ(0px)',
-                        transition: 'transform 1.6s cubic-bezier(0.25, 1, 0.2, 1)',
-                        transformStyle: 'preserve-3d',
-                        willChange: 'transform'
-                      }}
-                      onClick={() => setIsDoorOpen(!isDoorOpen)}
-                    >
-                      <DoorPanel 
-                        width={166} 
-                        height={694} 
-                        selectedFinish={selectedFinish} 
-                        hasOblo={true}
-                        hasHinges={true}
-                        hingesSide="left"
-                        hasShadow={true}
-                        isDoorOpen={isDoorOpen}
-                      />
-                    </div>
-                    {/* RIGHT LEAF */}
-                    <div 
-                      className="absolute cursor-pointer group"
-                      style={{
-                        right: '2px',
-                        top: '3px',
-                        transformOrigin: '166px 50% 10px',
-                        transform: isDoorOpen ? 'rotateY(90deg) translateZ(0px)' : 'rotateY(0deg) translateZ(0px)',
-                        transition: 'transform 1.6s cubic-bezier(0.25, 1, 0.2, 1)',
-                        transformStyle: 'preserve-3d',
-                        willChange: 'transform'
-                      }}
-                      onClick={() => setIsDoorOpen(!isDoorOpen)}
-                    >
-                      <DoorPanel 
-                        width={166} 
-                        height={694} 
-                        selectedFinish={selectedFinish} 
-                        hasOblo={true}
-                        hasHinges={true}
-                        hingesSide="right"
-                        hasShadow={true}
-                        isDoorOpen={isDoorOpen}
-                      />
-                    </div>
-                  </>
-                ) : selectedOpening.id === 'libro' ? (
-                  /* BIFOLD DOOR */
-                  <div 
-                    className="absolute cursor-pointer group"
-                    style={{
-                      left: '2px',
-                      top: '3px',
-                      transformOrigin: '0px 50% 10px',
-                      transform: isDoorOpen ? 'rotateY(-80deg) translateZ(0px)' : 'rotateY(0deg) translateZ(0px)',
-                      transition: 'transform 1.6s cubic-bezier(0.25, 1, 0.2, 1)',
-                      transformStyle: 'preserve-3d',
-                      willChange: 'transform'
-                    }}
-                    onClick={() => setIsDoorOpen(!isDoorOpen)}
-                  >
-                    <DoorPanel 
-                      width={166} 
-                      height={694} 
-                      selectedFinish={selectedFinish}
-                      hasHinges={true}
-                      hingesSide="left"
-                      hasShadow={true}
-                      isDoorOpen={isDoorOpen}
-                    >
-                      {/* Nested Right Panel (Folds relative to Left Panel) */}
-                      <div
-                        className="absolute top-0"
-                        style={{
-                          left: '166px',
-                          transformOrigin: '0px 50% 10px',
-                          transform: isDoorOpen ? 'rotateY(150deg) translateZ(0px)' : 'rotateY(0deg) translateZ(0px)',
-                          transition: 'transform 1.6s cubic-bezier(0.25, 1, 0.2, 1)',
-                          transformStyle: 'preserve-3d',
-                          willChange: 'transform'
-                        }}
-                      >
-                        <DoorPanel 
-                          width={166} 
-                          height={694} 
-                          selectedFinish={selectedFinish}
-                          hasKnob={true}
-                          hasShadow={true}
-                          isDoorOpen={isDoorOpen}
-                        />
-                      </div>
-                    </DoorPanel>
-                  </div>
-                ) : (
-                  /* SINGLE PANEL (Battente, Rototraslante, Magic) */
-                  <div 
-                    className="absolute cursor-pointer group"
-                    style={{
-                      left: '2px',
-                      top: '3px',
-                      transformOrigin: mechanics.origin,
-                      transform: mechanics.transform,
-                      transition: 'transform 1.6s cubic-bezier(0.25, 1, 0.2, 1)',
-                      transformStyle: 'preserve-3d',
-                      willChange: 'transform'
-                    }}
-                    onClick={() => setIsDoorOpen(!isDoorOpen)}
-                  >
-                    <DoorPanel 
-                      width={336} 
-                      height={694} 
-                      selectedFinish={selectedFinish} 
-                      hasHandle={selectedOpening.id !== 'magic'}
-                      hasFlushPull={selectedOpening.id === 'magic'}
-                      hasHinges={selectedOpening.id === 'battente'}
-                      hingesSide="left"
-                      hasShadow={true}
-                      isDoorOpen={isDoorOpen}
-                    />
-                  </div>
-                )}
-              </div>
-
-              {/* Interaction Overlay */}
-              <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 text-center w-full z-50">
-                <button 
-                  onClick={() => setIsDoorOpen(!isDoorOpen)}
-                  className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 px-8 py-4 rounded-full text-white font-bold text-xs uppercase tracking-widest hover:bg-[#ea5d1a] hover:border-[#ea5d1a] transition-all shadow-2xl"
-                >
-                  {isDoorOpen ? <Pause size={16} /> : <Play size={16} />}
-                  {isDoorOpen ? 'Chiudi Porta' : 'Aziona Cinematica'}
-                </button>
-              </div>
-
-            </div>
+          {/* LEFT: STATIC DOOR PREVIEW */}
+          <div className="hidden lg:flex w-full lg:w-[40%] items-center justify-center bg-white/5 rounded-[1.5rem] border border-white/10 p-8 md:p-10 shadow-xl backdrop-blur-sm h-fit sticky top-32">
+            <DoorPanel 
+              selectedFinish={selectedFinish} 
+              collectionId={selectedCol.id}
+            />
           </div>
 
-          {/* RIGHT: LUXURY CONTROL PANEL */}
-          <div className="w-full lg:w-[45%] flex flex-col gap-8">
+          {/* RIGHT: CONFIGURATOR TRAY & TEXT INFO */}
+          <div className="w-full lg:w-[60%] flex flex-col justify-between py-2">
             
-            {/* Step 1: Collection */}
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] shadow-2xl">
-              <div className="flex justify-between items-end mb-6">
-                <div>
-                  <p className="text-[#ea5d1a] font-bold text-[10px] uppercase tracking-widest mb-2">Parametro 01</p>
-                  <h3 className="text-white font-display text-2xl font-bold">Collezione Architettonica</h3>
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {collections.map(col => (
-                  <button
-                    key={col.id}
-                    onClick={() => {
-                      setSelectedCol(col);
-                      if (!col.availableFinishes.includes(selectedFinish.id)) setSelectedFinish(finishes.find(f => f.id === col.availableFinishes[0]));
-                      if (!col.availableOpenings.includes(selectedOpening.id)) setSelectedOpening(openings.find(o => o.id === col.availableOpenings[0]));
-                    }}
-                    className={`px-5 py-3 rounded-xl text-[11px] font-bold uppercase tracking-widest transition-all border ${
-                      selectedCol.id === col.id 
-                        ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.2)]' 
-                        : 'bg-transparent text-white/50 border-white/10 hover:border-white/30 hover:text-white'
-                    }`}
-                  >
-                    {col.name.replace('Collezione ', '')}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Step 2: Finishes */}
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] shadow-2xl">
-              <div className="flex justify-between items-end mb-6">
-                <div>
-                  <p className="text-[#ea5d1a] font-bold text-[10px] uppercase tracking-widest mb-2">Parametro 02</p>
-                  <h3 className="text-white font-display text-2xl font-bold">Essenza Materica</h3>
-                </div>
-                <div className="text-right">
-                  <span className="text-white font-bold text-xs uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full border border-white/10">{selectedFinish.name}</span>
-                </div>
-              </div>
+            <div className="flex flex-col gap-6">
               
-              <div className="flex flex-wrap gap-3">
-                {availableFinishes.map(finish => (
-                  <button
-                    key={finish.id}
-                    onClick={() => setSelectedFinish(finish)}
-                    className={`relative w-12 h-12 rounded-full overflow-hidden transition-all duration-300 ${
-                      selectedFinish.id === finish.id ? 'ring-2 ring-white ring-offset-4 ring-offset-[#111112] scale-110 shadow-xl' : 'hover:scale-105 border border-white/10 opacity-70 hover:opacity-100'
-                    }`}
-                    style={{ background: finish.bgPattern || finish.color }}
-                    title={finish.name}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-white/10"></div>
-                  </button>
-                ))}
+              {/* Product Info Block */}
+              <div>
+                <p className="text-[#ea5d1a] text-sm font-bold uppercase tracking-widest mb-2">{selectedCol.name}</p>
+                <h3 className="text-3xl md:text-5xl font-display font-bold text-white tracking-tight leading-tight mb-4">
+                  {docSheet.headline}
+                </h3>
+                <p className="text-white/90 text-base md:text-lg font-light leading-relaxed mb-8">
+                  {docSheet.pdfCopy}
+                </p>
               </div>
-            </div>
 
-            {/* Step 3: Openings */}
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] shadow-2xl">
-              <div className="flex justify-between items-end mb-6">
-                <div>
-                  <p className="text-[#ea5d1a] font-bold text-[10px] uppercase tracking-widest mb-2">Parametro 03</p>
-                  <h3 className="text-white font-display text-2xl font-bold">Cinematica d'Apertura</h3>
+              {/* Collections Navigation Row */}
+              <div className="mb-6 md:mb-8">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-xs text-white/90 font-bold uppercase tracking-widest">Collezioni Disponibili</p>
+                  {!hasScrolledCol && (
+                    <p className="flex md:hidden items-center gap-1 text-[9px] text-white/40 font-bold uppercase tracking-widest animate-pulse"><MoveHorizontal size={12} /> Scorri</p>
+                  )}
                 </div>
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {availableOpenings.map(op => {
-                  const isSelected = selectedOpening.id === op.id;
-                  return (
-                    <div 
-                      key={op.id}
+                <div 
+                  className="flex overflow-x-auto scrollbar-hide gap-2 pb-2 md:pb-0 md:flex-wrap"
+                  onScroll={() => { if (!hasScrolledCol) setHasScrolledCol(true); }}
+                >
+                  {collections.map(col => (
+                    <button
+                      key={col.id}
                       onClick={() => {
-                        setSelectedOpening(op);
-                        setIsDoorOpen(true);
+                        setSelectedCol(col);
+                        if (!col.availableFinishes.includes(selectedFinish.id)) {
+                          setSelectedFinish(finishes.find(f => f.id === col.availableFinishes[0]));
+                        }
                       }}
-                      className={`cursor-pointer p-4 rounded-xl border transition-all duration-500 flex flex-col gap-3 group ${
-                        isSelected 
-                          ? 'bg-gradient-to-br from-[#ea5d1a]/20 to-black/50 border-[#ea5d1a]/50 shadow-[inset_0_0_20px_rgba(234,93,26,0.1)]' 
-                          : 'bg-black/20 border-white/5 hover:bg-white/5'
+                      className={`whitespace-nowrap px-4 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest transition-all border cursor-pointer shrink-0 ${
+                        selectedCol.id === col.id 
+                          ? 'bg-white text-black border-white shadow-md' 
+                          : 'bg-transparent text-white/90 border-white/20 hover:border-white/50 hover:text-white'
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-lg transition-colors ${isSelected ? 'bg-[#ea5d1a] text-white shadow-[0_0_15px_rgba(234,93,26,0.4)]' : 'bg-white/5 text-white/40 group-hover:text-white/80'}`}>
-                          {iconMap[op.icon]}
-                        </div>
-                        <h4 className={`font-bold text-sm tracking-wide ${isSelected ? 'text-white' : 'text-white/60'}`}>{op.name}</h4>
-                      </div>
-                      {isSelected && (
-                        <div className="animate-fade-in pl-11">
-                           <p className="text-white/50 text-[11px] leading-relaxed">{op.description}</p>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                      {col.name.replace('Collezione ', '')}
+                    </button>
+                  ))}
+                </div>
               </div>
+
+              {/* Wood & Color Moodboard Plates */}
+              <div>
+                <p className="text-xs text-white/90 font-bold uppercase tracking-widest mb-3">Scegli la Finitura</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {availableFinishes.map(finish => (
+                    <div 
+                      key={finish.id}
+                      onClick={() => setSelectedFinish(finish)}
+                      className={`relative h-20 rounded-xl overflow-hidden cursor-pointer border transition-all duration-300 flex items-end p-3 shadow-md ${
+                        selectedFinish.id === finish.id 
+                          ? 'border-[#ea5d1a] scale-[1.02] shadow-lg shadow-black/40' 
+                          : 'border-white/10 opacity-70 hover:opacity-100 hover:scale-[1.01]'
+                      }`}
+                    >
+                      <div className="absolute inset-0 bg-cover bg-center" style={{ background: finish.bgPattern || finish.color }} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                      <div className="relative z-10 flex items-center justify-between w-full">
+                        <div>
+                          <h4 className="text-white font-bold text-xs leading-tight drop-shadow-md">{finish.name}</h4>
+                        </div>
+                        {selectedFinish.id === finish.id && (
+                          <div className="w-4 h-4 rounded-full bg-[#ea5d1a] flex items-center justify-center text-white shadow">
+                            <Check size={8} strokeWidth={3} />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Technical Specifications Sheet */}
+              <div className="mt-6 border border-white/10 rounded-xl bg-white/5 p-5 md:p-6">
+                <p className="text-xs text-white/90 font-bold uppercase tracking-wider mb-4">Specifiche di Riferimento Catalogo</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4 gap-x-6 text-sm font-light">
+                  {docSheet.techSpecs.map((spec, index) => (
+                    <div key={index} className="flex flex-col sm:flex-row sm:justify-between border-b border-white/10 pb-2 gap-1">
+                      <span className="text-white/70">{spec.label}</span>
+                      <span className="font-semibold text-white sm:text-right">{spec.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
 
-            {/* Final Action */}
-            <div className="mt-2">
+            {/* Request Quote Button */}
+            <div className="mt-8 pt-6 border-t border-white/5 flex justify-center lg:justify-end">
               <button 
                 onClick={onRequestQuote}
-                className="w-full relative overflow-hidden group bg-white text-black py-6 rounded-[2rem] font-bold transition-all shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)] text-sm uppercase tracking-widest"
+                className="bg-[#ea5d1a] hover:bg-[#d04d12] text-white py-4 px-10 rounded-xl font-bold text-xs uppercase tracking-widest transition-all cursor-pointer shadow-lg shadow-[#ea5d1a]/20"
               >
-                <div className="absolute inset-0 bg-[#ea5d1a] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"></div>
-                <span className="relative z-10 group-hover:text-white transition-colors duration-500">
-                  Richiedi Preventivo Configurazione
-                </span>
+                Richiedi Preventivo
               </button>
             </div>
 
@@ -569,6 +276,7 @@ export default function Configurator({
         </div>
 
       </div>
+
     </section>
   );
 }

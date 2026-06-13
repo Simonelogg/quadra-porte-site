@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contatti" className="section-pad bg-[#f5f5f7]">
+    <section id="contatti" className="py-12 md:py-32 bg-transparent text-white relative overflow-hidden dark-section">
       <div className="max-w-[1400px] mx-auto">
         <div className="title-section">
           <h2 className="font-display">Contattaci</h2>
@@ -23,7 +23,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-[#86868b] font-bold uppercase tracking-widest mb-1">Telefono</p>
-                  <p className="text-2xl font-medium text-[#1d1d1f]">+39 012 345 6789</p>
+                  <p className="text-2xl font-medium text-[#1d1d1f]">+39 0934 566279</p>
                 </div>
               </div>
 
@@ -33,7 +33,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-[#86868b] font-bold uppercase tracking-widest mb-1">Email</p>
-                  <p className="text-2xl font-medium text-[#1d1d1f]">info@quadra-porte.it</p>
+                  <a href="mailto:info@quadraporte.it" className="text-2xl font-medium text-[#1d1d1f] hover:text-[#ea5d1a] transition-colors">info@quadraporte.it</a>
                 </div>
               </div>
 
@@ -42,8 +42,8 @@ export default function Contact() {
                   <MapPin size={24} className="text-[#1d1d1f]" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#86868b] font-bold uppercase tracking-widest mb-1">Showroom</p>
-                  <p className="text-2xl font-medium text-[#1d1d1f]">Via del Design, 42 - Milano</p>
+                  <p className="text-sm text-[#86868b] font-bold uppercase tracking-widest mb-1">Sede & Showroom</p>
+                  <p className="text-xl font-medium text-[#1d1d1f] leading-snug">Contrada Gigara s.n.c.<br/>93100 Caltanissetta (CL)</p>
                 </div>
               </div>
             </div>

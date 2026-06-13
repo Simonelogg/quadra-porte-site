@@ -7,14 +7,15 @@
   --bg-subtle: #f5f5f7;
   
   --text-main: #1d1d1f;
-  --text-muted: #86868b;
-  --text-gold: #ea5d1a; /* Updated to Logo Orange */
+  --text-muted: #4a4a4a;       /* was #86868b — now readable */
+  --text-muted-dark: #c0c0c0;  /* muted on dark backgrounds  */
+  --text-gold: #ea5d1a;
   
   --radius-card: 32px;
   --radius-btn: 9999px;
   
-  --font-display: 'Outfit', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Quicksand', 'All Round Gothic', sans-serif;
+  --font-body: 'Lato', 'Calibri', sans-serif;
   
   --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -123,4 +124,31 @@ h1, h2, h3, h4, .font-display {
 @keyframes slowZoom {
   0% { transform: scale(1); }
   100% { transform: scale(1.05); }
+}
+
+@keyframes seriousSpin {
+  0% { transform: rotateX(60deg) rotateZ(0deg) translateZ(-200px); }
+  100% { transform: rotateX(60deg) rotateZ(360deg) translateZ(-200px); }
+}
+
+@keyframes scanVertical {
+  0% { transform: translateY(-100vh); }
+  50% { transform: translateY(150vh); }
+  100% { transform: translateY(-100vh); }
+}
+
+/* ─── Dark section text readability overrides ─── */
+.dark-section p,
+.dark-section li,
+.dark-section span:not(.badge) {
+  /* bump all translucent white text to at least 75% opacity */
+  color: rgba(255,255,255,0.78);
+}
+
+/* Force readable subtitles on dark bg sections */
+section[id='tecnologia'] p.text-white\/50,
+section[id='tecnologia'] p.text-white\/60,
+section[id='configuratore'] p.text-white\/50,
+section[id='configuratore'] p.text-white\/60 {
+  color: rgba(255,255,255,0.78) !important;
 }
