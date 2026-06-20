@@ -2,29 +2,32 @@ import React, { useState } from 'react';
 import { finishes } from '../data';
 
 const row1 = finishes.slice(0, 9);
-const centerTile = finishes[9];
-const row2 = finishes.slice(10);
+const row2 = finishes.slice(9, 18);
+const lastTile = finishes[18];
 
-function Tile({ finish, hoveredFinish, setHoveredFinish, className = '', style = {} }) {
-  const isHovered = hoveredFinish?.id === finish.id;
+function Tile({ finish, active, onToggle, style = {} }) {
+  const isActive = active?.id === finish.id;
   return (
     <div
-      onMouseEnter={() => setHoveredFinish(finish)}
-      onMouseLeave={() => setHoveredFinish(null)}
-      className={`relative cursor-pointer rounded-xl md:rounded-2xl overflow-hidden shadow-lg transition-all duration-300 ${
-        isHovered ? 'scale-105 border border-white/30 shadow-[0_0_20px_rgba(234,93,26,0.25)]' : 'border border-transparent'
-      } ${className}`}
+      onClick={() => onToggle(finish)}
+      onMouseEnter={() => onToggle(finish)}
+      onMouseLeave={() => onToggle(null)}
+      className={`relative cursor-pointer rounded-xl overflow-hidden shadow-md transition-all duration-300 select-none ${
+        isActive
+          ? 'scale-[1.04] border border-white/30 shadow-[0_0_20px_rgba(234,93,26,0.3)] z-10'
+          : 'border border-transparent'
+      }`}
       style={{
         backgroundImage: `url(${finish.image})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundColor: finish.color,
-        ...style
+        ...style,
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-      <div className={`absolute bottom-0 left-0 right-0 p-2 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-        <span className="text-white font-bold text-[9px] md:text-[10px] leading-tight tracking-wide block truncate">
+      <div className={`absolute bottom-0 left-0 right-0 px-1.5 py-1.5 transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+        <span className="text-white font-bold text-[8px] sm:text-[9px] md:text-[10px] leading-tight tracking-wide block truncate">
           {finish.name}
         </span>
       </div>
@@ -33,61 +36,91 @@ function Tile({ finish, hoveredFinish, setHoveredFinish, className = '', style =
 }
 
 export default function Materials() {
-  const [hoveredFinish, setHoveredFinish] = useState(null);
+  const [active, setActive] = useState(null);
+
+  const toggle = (finish) => setActive(finish);
 
   return (
-    <section id="materiali" className="py-12 md:py-32 bg-transparent text-white relative overflow-hidden dark-section">
+    <section id="materiali" className="py-10 md:py-32 bg-transparent text-white relative overflow-hidden dark-section">
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-8">
 
-        <div className="flex flex-col md:flex-row items-center justify-between mb-8 md:mb-12 gap-6">
-          <div className="text-center md:text-left">
-            <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tighter text-white">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 md:mb-10 gap-3">
+          <div>
+            <p className="text-[#ea5d1a] text-[10px] font-bold uppercase tracking-widest mb-1">Finiture</p>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold tracking-tighter text-white">
               Palette <span className="text-[#ea5d1a]">Materica.</span>
             </h2>
           </div>
-          <div className="text-center md:text-right max-w-sm min-h-[48px] flex flex-col justify-center">
-            {hoveredFinish ? (
-              <div className="animate-fade-in">
-                <h4 className="text-[#ea5d1a] font-bold text-sm uppercase tracking-widest">{hoveredFinish.name}</h4>
-                <p className="text-white/60 text-xs mt-1">{hoveredFinish.description}</p>
+          <div className="min-h-[36px] flex flex-col justify-center sm:text-right">
+            {active ? (
+              <div>
+                <h4 className="text-[#ea5d1a] font-bold text-xs uppercase tracking-widest">{active.name}</h4>
+                <p className="text-white/60 text-xs mt-0.5">{active.description}</p>
               </div>
             ) : (
-              <p className="text-white/30 text-xs italic">Passa sopra una finitura per scoprirla.</p>
+              <p className="text-white/30 text-[11px] italic">
+                {('ontouchstart' in window) ? 'Tocca una finitura per scoprirla.' : 'Passa sopra una finitura per scoprirla.'}
+              </p>
             )}
           </div>
         </div>
 
-        {/* Mobile: flex-wrap centrato, 3 per riga, ultimo tile centrato */}
-        <div className="sm:hidden flex flex-wrap justify-center gap-2">
-          {finishes.map((finish) => (
-            <div key={finish.id} style={{ width: 'calc(33.333% - 6px)' }}>
-              <Tile finish={finish} hoveredFinish={hoveredFinish} setHoveredFinish={setHoveredFinish}
-                style={{ aspectRatio: '1 / 1.3', width: '100%' }} />
-            </div>
-          ))}
-        </div>
-
-        {/* Desktop: 9 + 1 centrato + 9 */}
-        <div className="hidden sm:block">
-          <div className="grid grid-cols-9 gap-2 mb-2">
-            {row1.map((finish) => (
-              <Tile key={finish.id} finish={finish} hoveredFinish={hoveredFinish} setHoveredFinish={setHoveredFinish}
-                style={{ aspectRatio: '1 / 1.4' }} />
+        {/* Mobile: 3 colonne (18÷3=6 righe esatte), ultimo centrato */}
+        <div className="sm:hidden">
+          <div className="grid grid-cols-3 gap-1.5">
+            {finishes.slice(0, -1).map((finish) => (
+              <Tile
+                key={finish.id}
+                finish={finish}
+                active={active}
+                onToggle={toggle}
+                style={{ aspectRatio: '1 / 1.3' }}
+              />
             ))}
           </div>
-          <div className="flex justify-center mb-2">
+          <div className="flex justify-center mt-1.5">
             <Tile
-              finish={centerTile}
-              hoveredFinish={hoveredFinish}
-              setHoveredFinish={setHoveredFinish}
-              style={{ aspectRatio: '1 / 1.4', width: 'calc(11.11% - 4px)' }}
+              finish={lastTile}
+              active={active}
+              onToggle={toggle}
+              style={{ aspectRatio: '1 / 1.3', width: 'calc(33.333% - 5px)' }}
             />
+          </div>
+        </div>
+
+        {/* Desktop: 9 + 9 + 1 centrato */}
+        <div className="hidden sm:block space-y-2">
+          <div className="grid grid-cols-9 gap-2">
+            {row1.map((finish) => (
+              <Tile
+                key={finish.id}
+                finish={finish}
+                active={active}
+                onToggle={toggle}
+                style={{ aspectRatio: '1 / 1.4' }}
+              />
+            ))}
           </div>
           <div className="grid grid-cols-9 gap-2">
             {row2.map((finish) => (
-              <Tile key={finish.id} finish={finish} hoveredFinish={hoveredFinish} setHoveredFinish={setHoveredFinish}
-                style={{ aspectRatio: '1 / 1.4' }} />
+              <Tile
+                key={finish.id}
+                finish={finish}
+                active={active}
+                onToggle={toggle}
+                style={{ aspectRatio: '1 / 1.4' }}
+              />
             ))}
+          </div>
+          {/* Ultimo centrato sotto entrambe le righe */}
+          <div className="flex justify-center">
+            <Tile
+              finish={lastTile}
+              active={active}
+              onToggle={toggle}
+              style={{ aspectRatio: '1 / 1.4', width: 'calc(11.11% - 4px)' }}
+            />
           </div>
         </div>
 

@@ -174,6 +174,7 @@ export const collections = [
     tagline: "Il design complanare e la purezza delle linee",
     description: "Il cuore dell'innovazione Quadra: il telaio complanare Filo-coprifilo permette di allineare anta, telaio e coprifilo sullo stesso piano, eliminando gli spessori a vista. È prodotta con un'anima in legno di abete e rivestimento idrofugo HDF per la massima resistenza all'umidità.",
     image: import.meta.env.BASE_URL + "images/collezioni/flat%20palissandro%20grigio.jpg",
+    imagePosition: "left center",
     features: [
       "Telaio Idro (Abete + HDF idrorepellente 3mm)",
       "Coprifilo folding ad alta resistenza",
@@ -192,6 +193,7 @@ export const collections = [
     tagline: "Customizzazione geometrica ed eleganza metallica",
     description: "Progettata per chi desidera personalizzare ogni dettaglio. La collezione si distingue per i profili in alluminio inseriti con precisione millimetrica nell'anta ed opzioni con cristalli Swarovski che creano giochi di luce unici.",
     image: import.meta.env.BASE_URL + "images/collezioni/insert-Mod.%202v%20Onda%20Swarovsky%20-%20rovere%20spazzolato.jpg",
+    imagePosition: "left center",
     features: [
       "Inserti in alluminio spazzolato",
       "Opzioni con cristalli Swarovski",

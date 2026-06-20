@@ -67,10 +67,11 @@ export default function Collections() {
               >
                 
                 {/* Background Image */}
-                <img 
-                  src={col.image} 
-                  alt={col.name} 
+                <img
+                  src={col.image}
+                  alt={col.name}
                   className={`absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ${isActive ? 'scale-100 opacity-100' : 'scale-100 lg:scale-110 opacity-70 lg:opacity-40 lg:grayscale-[50%]'}`}
+                  style={{ objectPosition: col.imagePosition || 'center center' }}
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80";
@@ -89,7 +90,7 @@ export default function Collections() {
                     {/* Title */}
                     <div className="relative flex items-center w-full mb-4">
                       <div className="h-[2px] bg-[#ea5d1a] mr-3 shrink-0 w-8"></div>
-                      <h3 className="text-white font-display text-3xl md:text-5xl font-bold tracking-tighter drop-shadow-lg">
+                      <h3 className="text-white font-display text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter drop-shadow-lg overflow-hidden">
                         {col.name}
                       </h3>
                     </div>
