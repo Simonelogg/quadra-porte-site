@@ -4,15 +4,18 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Collections from './components/Collections';
-import Configurator from './components/Configurator';
 import Materials from './components/Materials';
 import Specs from './components/Specs';
 import Contact from './components/Contact';
 import HomeChiSiamo from './components/HomeChiSiamo';
 import ChiSiamo from './pages/ChiSiamo';
 import FAQ from './pages/FAQ';
+import CollezioneFlat from './pages/CollezioneFlat';
+import CollezioneInsert from './pages/CollezioneInsert';
+import CollezioneCompact from './pages/CollezioneCompact';
+import CollezionePantografato from './pages/CollezionePantografato';
+import CollezioneFiloMuro from './pages/CollezioneFiloMuro';
 
-import { collections, finishes, openings } from './data';
 
 /* ── SERIOUS 3D ARCHITECTURAL BACKGROUND ── */
 function GlobalBackground() {
@@ -98,14 +101,9 @@ function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  const [selectedCol, setSelectedCol] = useState(collections[0]);
-  const [selectedFinish, setSelectedFinish] = useState(finishes[0]);
-  const [selectedOpening, setSelectedOpening] = useState(openings[0]);
-  const [isDoorOpen, setIsDoorOpen] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'collezioni', 'configuratore', 'materiali', 'tecnologia', 'contatti'];
+      const sections = ['home', 'collezioni', 'materiali', 'tecnologia', 'contatti'];
       const scrollPosition = window.scrollY + 200;
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -122,17 +120,6 @@ function HomePage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleCustomize = (collection) => {
-    setSelectedCol(collection);
-    setSelectedFinish(finishes.find(f => collection.availableFinishes.includes(f.id)) || finishes[0]);
-    setSelectedOpening(openings.find(o => collection.availableOpenings.includes(o.id)) || openings[0]);
-    document.getElementById('configuratore').scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleRequestQuote = () => {
-    document.getElementById('contatti').scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <>
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} activeSection={activeSection} />
@@ -140,14 +127,7 @@ function HomePage() {
         <Hero />
         <HomeChiSiamo />
         <Materials />
-        <Collections onCustomize={handleCustomize} />
-        <Configurator
-          selectedCol={selectedCol} setSelectedCol={setSelectedCol}
-          selectedFinish={selectedFinish} setSelectedFinish={setSelectedFinish}
-          selectedOpening={selectedOpening} setSelectedOpening={setSelectedOpening}
-          isDoorOpen={isDoorOpen} setIsDoorOpen={setIsDoorOpen}
-          onRequestQuote={handleRequestQuote}
-        />
+        <Collections />
         <Specs />
         <Contact />
       </main>
@@ -167,6 +147,11 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/chi-siamo" element={<ChiSiamo />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/collezioni/flat" element={<CollezioneFlat />} />
+          <Route path="/collezioni/insert" element={<CollezioneInsert />} />
+          <Route path="/collezioni/compact" element={<CollezioneCompact />} />
+          <Route path="/collezioni/pantografato" element={<CollezionePantografato />} />
+          <Route path="/collezioni/filomuro" element={<CollezioneFiloMuro />} />
         </Routes>
         <FaqFab />
       </div>

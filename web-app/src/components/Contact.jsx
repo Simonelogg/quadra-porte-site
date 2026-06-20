@@ -23,7 +23,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-[#86868b] font-bold uppercase tracking-widest mb-1">Telefono</p>
-                  <p className="text-2xl font-medium text-[#1d1d1f]">+39 0934 566279</p>
+                  <p className="text-2xl font-medium text-white">+39 0934 566279</p>
                 </div>
               </div>
 
@@ -33,7 +33,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-[#86868b] font-bold uppercase tracking-widest mb-1">Email</p>
-                  <a href="mailto:info@quadraporte.it" className="text-2xl font-medium text-[#1d1d1f] hover:text-[#ea5d1a] transition-colors">info@quadraporte.it</a>
+                  <a href="mailto:info@quadraporte.it" className="text-2xl font-medium text-white hover:text-[#ea5d1a] transition-colors">info@quadraporte.it</a>
                 </div>
               </div>
 
@@ -43,7 +43,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-[#86868b] font-bold uppercase tracking-widest mb-1">Sede & Showroom</p>
-                  <p className="text-xl font-medium text-[#1d1d1f] leading-snug">Contrada Gigara s.n.c.<br/>93100 Caltanissetta (CL)</p>
+                  <p className="text-xl font-medium text-white leading-snug">Contrada Gigara s.n.c.<br/>93100 Caltanissetta (CL)</p>
                 </div>
               </div>
             </div>

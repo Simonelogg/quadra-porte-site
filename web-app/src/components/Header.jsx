@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { collections } from '../data';
 
 export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }) {
   const { pathname } = useLocation();
   const isSubPage = pathname !== '/';
+  const [collectionsOpen, setCollectionsOpen] = useState(false);
+  const [mobileCollOpen, setMobileCollOpen] = useState(false);
 
-  const sections = ['home', 'collezioni', 'configuratore', 'materiali', 'tecnologia', 'contatti'];
-  const labels = {
-    home: 'Home', collezioni: 'Collezioni', configuratore: 'Configuratore',
-    materiali: 'Materiali', tecnologia: 'Tecnologia', contatti: 'Contatti'
-  };
+  const sections = ['materiali', 'tecnologia', 'contatti'];
+  const labels = { materiali: 'Materiali', tecnologia: 'Tecnologia', contatti: 'Contatti' };
 
   const navHref = (sec) => isSubPage ? `/#${sec}` : `#${sec}`;
+  const isCollActive = pathname.startsWith('/collezioni');
 
   return (
     <>
@@ -31,7 +32,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }) {
             >
               Home
             </a>
-            
+
             <Link
               to="/chi-siamo"
               className={`text-sm font-medium transition-colors ${
@@ -41,7 +42,51 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }) {
               Chi Siamo
             </Link>
 
-            {sections.filter(sec => sec !== 'home').map((sec) => (
+            {/* Collezioni con dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setCollectionsOpen(true)}
+              onMouseLeave={() => setCollectionsOpen(false)}
+            >
+              <a
+                href={navHref('collezioni')}
+                className={`text-sm font-medium transition-colors flex items-center gap-1 ${
+                  (activeSection === 'collezioni' && !isSubPage) || isCollActive
+                    ? 'text-[#1d1d1f] font-bold'
+                    : 'text-[#555] hover:text-[#1d1d1f]'
+                }`}
+              >
+                Collezioni
+                <ChevronDown
+                  size={12}
+                  className={`transition-transform duration-200 ${collectionsOpen ? 'rotate-180' : ''}`}
+                />
+              </a>
+
+              {collectionsOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 min-w-[200px]">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-[#e8e8ed] py-2">
+                    {collections.filter(c => c.route).map(c => (
+                      <Link
+                        key={c.id}
+                        to={c.route}
+                        onClick={() => setCollectionsOpen(false)}
+                        className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors whitespace-nowrap group ${
+                          pathname === c.route
+                            ? 'text-[#ea5d1a] bg-[#fff5f0]'
+                            : 'text-[#1d1d1f] hover:bg-[#f5f5f7] hover:text-[#ea5d1a]'
+                        }`}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ea5d1a] opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                        {c.name.replace('Collezione ', '')}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {sections.map((sec) => (
               <a
                 key={sec}
                 href={navHref(sec)}
@@ -73,9 +118,9 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }) {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black/98 backdrop-blur-3xl pt-32 px-10 flex flex-col gap-8 anim-fade-up overflow-y-auto pb-12">
-          
+
           <p className="text-[#ea5d1a] text-xs font-bold uppercase tracking-widest mb-2">Navigazione</p>
-          
+
           <div className="flex flex-col gap-6">
             <a
               href={navHref('home')}
@@ -84,7 +129,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }) {
             >
               Home
             </a>
-            
+
             <Link
               to="/chi-siamo"
               onClick={() => setIsMenuOpen(false)}
@@ -93,7 +138,40 @@ export default function Header({ isMenuOpen, setIsMenuOpen, activeSection }) {
               Chi Siamo
             </Link>
 
-            {sections.filter(sec => sec !== 'home').map((sec) => (
+            {/* Collezioni mobile */}
+            <div>
+              <button
+                onClick={() => setMobileCollOpen(v => !v)}
+                className={`text-3xl md:text-4xl font-display transition-colors flex items-center gap-3 ${
+                  isCollActive ? 'text-white font-bold' : 'text-white/60 font-light hover:text-white'
+                }`}
+              >
+                Collezioni
+                <ChevronDown
+                  size={20}
+                  className={`transition-transform duration-200 mt-1 ${mobileCollOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {mobileCollOpen && (
+                <div className="mt-4 ml-4 flex flex-col gap-3 border-l border-white/10 pl-6">
+                  {collections.filter(c => c.route).map(c => (
+                    <Link
+                      key={c.id}
+                      to={c.route}
+                      onClick={() => { setIsMenuOpen(false); setMobileCollOpen(false); }}
+                      className={`text-lg font-medium transition-colors ${
+                        pathname === c.route ? 'text-[#ea5d1a]' : 'text-white/50 hover:text-white'
+                      }`}
+                    >
+                      {c.name.replace('Collezione ', '')}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {sections.map((sec) => (
               <a
                 key={sec}
                 href={navHref(sec)}

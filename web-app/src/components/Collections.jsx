@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { collections } from '../data';
-import { ArrowRight, MoveHorizontal } from 'lucide-react';
+import { MoveHorizontal, ArrowRight } from 'lucide-react';
 
-export default function Collections({ onCustomize }) {
+export default function Collections() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -33,7 +34,7 @@ export default function Collections({ onCustomize }) {
                 <button 
                   key={`tab-${col.id}`}
                   onClick={() => setActiveIndex(index)}
-                  className={`px-6 py-3 md:px-8 md:py-4 rounded-full font-bold uppercase tracking-widest text-xs md:text-sm transition-all duration-500 border backdrop-blur-md ${
+                  className={`px-4 py-3 md:px-6 md:py-4 rounded-full font-bold uppercase tracking-wider text-[10px] md:text-xs transition-all duration-500 border backdrop-blur-md whitespace-nowrap ${
                     isActive 
                       ? 'bg-[#ea5d1a] text-white border-[#ea5d1a] shadow-[0_0_30px_rgba(234,93,26,0.3)] scale-105' 
                       : 'bg-white/5 text-white/75 border-white/10 hover:bg-white/10 hover:text-white hover:border-white/30'
@@ -101,17 +102,16 @@ export default function Collections({ onCustomize }) {
                       <p className="text-white/90 font-medium leading-relaxed text-sm mb-6 drop-shadow-md">
                         {col.description}
                       </p>
-                      
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onCustomize(col);
-                        }}
-                        className="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-bold hover:bg-[#ea5d1a] hover:border-[#ea5d1a] transition-all uppercase tracking-widest group/btn shadow-lg text-xs"
-                      >
-                        Configura Modello
-                        <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                      </button>
+
+                      {col.route && (
+                        <Link
+                          to={col.route}
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-2 bg-[#ea5d1a] text-white text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-full hover:bg-white hover:text-[#1d1d1f] transition-colors shadow-lg"
+                        >
+                          Scopri la Collezione <ArrowRight size={14} />
+                        </Link>
+                      )}
                     </div>
 
                   </div>
