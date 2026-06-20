@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import FinishSection from '../components/FinishSection';
 import ContactForm from '../components/ContactForm';
+import OtherCollections from '../components/OtherCollections';
 
 const BASE = import.meta.env.BASE_URL;
 

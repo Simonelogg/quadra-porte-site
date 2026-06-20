@@ -2,6 +2,15 @@
 <html lang="it">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Ripristina il percorso dopo il redirect da 404.html (GitHub Pages)
+      (function() {
+        var p = new URLSearchParams(window.location.search).get('p');
+        if (p) {
+          window.history.replaceState(null, null, '/quadra/' + p + window.location.hash);
+        }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quadra Porte | Porte per Interni, Complanari e Blindate di Design</title>
     <meta name="description" content="Quadra S.r.l. realizza porte per interni complanari (Collezioni Flat, Insert, Compact, Pantografato) e porte blindate di lusso (Serie Rock) con telaio idrorepellente e isolamento acustico di alta gamma." />
