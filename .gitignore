@@ -5,3 +5,6 @@ web-app/dist/
 *.log
 __pycache__/
 *.pyc
+
+# Immagini (da caricare separatamente sul server)
+web-app/public/images/
