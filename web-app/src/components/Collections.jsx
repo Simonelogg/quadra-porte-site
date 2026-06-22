@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { collections } from '../data';
-import { MoveHorizontal, ArrowRight } from 'lucide-react';
+import { MoveHorizontal, ArrowRight, Maximize2 } from 'lucide-react';
+import ImageModal from './ImageModal';
 
 export default function Collections() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [modalData, setModalData] = useState(null);
 
   return (
     <section id="collezioni" className="pt-8 pb-12 lg:py-32 bg-transparent relative overflow-hidden">
@@ -49,7 +51,7 @@ export default function Collections() {
 
         {/* ACCORDION CONTAINER */}
         <div 
-          className="flex flex-row w-full h-[450px] md:h-[600px] lg:h-[650px] gap-4 overflow-x-auto lg:overflow-hidden snap-x snap-mandatory scrollbar-hide"
+          className="flex flex-row w-full h-[450px] md:h-[600px] lg:h-[650px] gap-4 lg:gap-0 lg:justify-between overflow-x-auto lg:overflow-hidden snap-x snap-mandatory scrollbar-hide"
           onScroll={() => { if (!hasScrolled) setHasScrolled(true); }}
         >
           
@@ -60,9 +62,15 @@ export default function Collections() {
               <div 
                 key={col.id}
                 onMouseEnter={() => setActiveIndex(index)}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => {
+                  if (isActive) {
+                    setModalData({ image: col.image, title: col.name, subtitle: col.tagline });
+                  } else {
+                    setActiveIndex(index);
+                  }
+                }}
                 className={`relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] group snap-center flex-shrink-0 ${
-                  isActive ? 'w-[85vw] sm:w-[60vw] lg:w-[50%] shadow-2xl' : 'w-[85vw] sm:w-[60vw] lg:w-[12.5%]'
+                  isActive ? 'w-[85vw] sm:w-[60vw] lg:w-[48%] shadow-2xl' : 'w-[85vw] sm:w-[60vw] lg:w-[9.5%]'
                 }`}
               >
                 
@@ -85,6 +93,13 @@ export default function Collections() {
                 {/* Content Area (Always visible on mobile, conditionally visible on desktop) */}
                 <div className={`absolute bottom-0 left-0 w-full flex flex-col justify-end p-5 md:p-8 transition-all duration-700 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-100 lg:opacity-0 translate-y-0 lg:translate-y-20 lg:pointer-events-none'}`}>
                   
+                  {/* Zoom Hint (Visible only when active) */}
+                  <div className={`absolute top-6 right-6 transition-opacity duration-500 delay-300 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
+                    <div className="bg-black/40 backdrop-blur-md p-3 rounded-full text-white/80 hover:text-white hover:bg-[#ea5d1a] transition-colors border border-white/10 hidden md:block shadow-lg">
+                      <Maximize2 size={20} />
+                    </div>
+                  </div>
+
                   <div className="flex flex-col items-start w-full">
                     
                     {/* Title */}
@@ -125,6 +140,16 @@ export default function Collections() {
         </div>
 
       </div>
+
+      {modalData && (
+        <ImageModal
+          isOpen={!!modalData}
+          onClose={() => setModalData(null)}
+          imageSrc={modalData.image}
+          title={modalData.title}
+          subtitle={modalData.subtitle}
+        />
+      )}
     </section>
   );
 }

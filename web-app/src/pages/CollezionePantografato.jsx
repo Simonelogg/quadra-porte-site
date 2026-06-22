@@ -5,6 +5,8 @@ import Header from '../components/Header';
 import FinishSection from '../components/FinishSection';
 import ContactForm from '../components/ContactForm';
 import OtherCollections from '../components/OtherCollections';
+import ImageModal from '../components/ImageModal';
+import { Maximize2 } from 'lucide-react';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -34,6 +36,7 @@ const variants = [
 export default function CollezionePantografato() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hovered, setHovered] = useState(null);
+  const [modalData, setModalData] = useState(null);
 
   return (
     <div className="min-h-screen bg-white text-[#1d1d1f]">
@@ -71,6 +74,7 @@ export default function CollezionePantografato() {
                 key={v.file}
                 onMouseEnter={() => setHovered(v.file)}
                 onMouseLeave={() => setHovered(null)}
+                onClick={() => setModalData({ image: src, title: v.label, subtitle: "Modello: " + v.label })}
                 className="relative overflow-hidden rounded-2xl cursor-pointer group"
                 style={{ aspectRatio: '3 / 4' }}
               >
@@ -81,6 +85,12 @@ export default function CollezionePantografato() {
                   style={{ objectPosition: v.objPos || 'center center' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                
+                {/* Zoom Icon */}
+                <div className={`absolute top-4 right-4 bg-black/40 backdrop-blur-sm p-2 rounded-full text-white/90 transition-all duration-300 ${isHov ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+                  <Maximize2 size={16} />
+                </div>
+
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="text-[#ea5d1a] text-[10px] font-bold uppercase tracking-widest mb-1">Modello</p>
                   <h3 className="text-white font-display font-bold text-lg md:text-xl leading-tight">
@@ -96,6 +106,16 @@ export default function CollezionePantografato() {
         <OtherCollections currentId="pantografato" />
         <ContactForm collection="PANTOGRAFATO" />
       </div>
+
+      {modalData && (
+        <ImageModal
+          isOpen={!!modalData}
+          onClose={() => setModalData(null)}
+          imageSrc={modalData.image}
+          title={modalData.title}
+          subtitle={modalData.subtitle}
+        />
+      )}
     </div>
   );
 }

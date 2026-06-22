@@ -14,7 +14,8 @@ import CollezioneFlat from './pages/CollezioneFlat';
 import CollezioneInsert from './pages/CollezioneInsert';
 import CollezioneCompact from './pages/CollezioneCompact';
 import CollezionePantografato from './pages/CollezionePantografato';
-import CollezioneFiloMuro from './pages/CollezioneFiloMuro';
+import CollezioneRasomuro from './pages/CollezioneRasomuro';
+import CollezioneBlindate from './pages/CollezioneBlindate';
 
 
 /* ── SERIOUS 3D ARCHITECTURAL BACKGROUND ── */
@@ -151,7 +152,8 @@ export default function App() {
           <Route path="/collezioni/insert" element={<CollezioneInsert />} />
           <Route path="/collezioni/compact" element={<CollezioneCompact />} />
           <Route path="/collezioni/pantografato" element={<CollezionePantografato />} />
-          <Route path="/collezioni/filomuro" element={<CollezioneFiloMuro />} />
+          <Route path="/collezioni/rasomuro" element={<CollezioneRasomuro />} />
+          <Route path="/collezioni/blindate" element={<CollezioneBlindate />} />
         </Routes>
         <FaqFab />
       </div>

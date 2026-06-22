@@ -243,21 +243,40 @@ export const collections = [
     route: "/collezioni/pantografato"
   },
   {
-    id: "filomuro",
-    name: "Collezione FILO MURO & BLINDATE",
-    tagline: "Minimalismo estremo e sicurezza certificata",
-    description: "Porte filo muro concepite per sparire nella parete, integrate con telai invisibili in alluminio. E le porte blindate serie Rock 3, che garantiscono la massima sicurezza con una cura artigianale nei rivestimenti e nelle sagomature.",
-    image: import.meta.env.BASE_URL + "images/filomuro.jpg",
+    id: "rasomuro",
+    name: "Collezione RASOMURO",
+    tagline: "Minimalismo estremo a filo parete",
+    description: "Porte concepite per sparire nella parete, integrate con telai invisibili in alluminio per un design puro ed essenziale senza interruzioni architettoniche.",
+    image: import.meta.env.BASE_URL + "images/filomuro/filomuro-bianco-floreale.jpg",
     features: [
-      "Blindati con Classe Antieffrazione RC3",
+      "Telai filo muro in alluminio estruso",
+      "Invisibilità totale delle cerniere",
+      "Perfetta complanarità con la parete",
+      "Possibilità di verniciatura come la parete"
+    ],
+    models: ["Rasomuro Standard", "Rasomuro a Soffitto", "Rasomuro Battiscopa"],
+    availableFinishes: ["bianco-opaco", "rovere-spazzolato", "noce-nazionale", "palissandro-grigio", "penelope"],
+    availableOpenings: ["battente", "rototraslante"],
+    availability: "Disponibile (Consegna in 3 settimane)",
+    route: "/collezioni/rasomuro"
+  },
+  {
+    id: "blindate",
+    name: "Collezione BLINDATE",
+    tagline: "Sicurezza certificata ed eleganza",
+    description: "Le porte blindate serie Rock 3 garantiscono la massima sicurezza con una cura artigianale nei rivestimenti e nelle sagomature, combinando alte prestazioni termiche e acustiche.",
+    image: import.meta.env.BASE_URL + "images/filomuro/rock3-standard.jpg",
+    imagePosition: "left center",
+    features: [
+      "Blindatura con Classe Antieffrazione RC3",
       "Abbattimento acustico certificato 30dB - 38dB",
       "Trasmittanza termica U=1.97 W/m² K",
-      "Telai filo muro in alluminio estruso"
+      "Rivestimenti completamente personalizzabili"
     ],
-    models: ["Filo Muro Standard", "Rock 3 Blindata", "Rock 3 Luce", "Rock 3 Arco", "Rock 3 Doppia Anta"],
+    models: ["Rock 3 Standard", "Rock 3 Filo Muro", "Rock 3 Luce", "Rock 3 Arco", "Rock 3 Doppia Anta"],
     availableFinishes: ["bianco-opaco", "rovere-spazzolato", "noce-nazionale", "palissandro-grigio", "penelope"],
     availableOpenings: ["battente"],
-    availability: "Disponibile (Consegna in 3 settimane)",
-    route: "/collezioni/filomuro"
+    availability: "Disponibile (Consegna in 4 settimane)",
+    route: "/collezioni/blindate"
   }
 ];

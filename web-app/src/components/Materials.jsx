@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { finishes } from '../data';
+import ImageModal from './ImageModal';
+import { Maximize2 } from 'lucide-react';
 
 const row1 = finishes.slice(0, 9);
 const row2 = finishes.slice(9, 18);
 const lastTile = finishes[18];
 
-function Tile({ finish, active, onToggle, style = {} }) {
+function Tile({ finish, active, onToggle, onEnlarge, style = {} }) {
   const isActive = active?.id === finish.id;
   return (
     <div
-      onClick={() => onToggle(finish)}
+      onClick={() => onEnlarge(finish)}
       onMouseEnter={() => onToggle(finish)}
       onMouseLeave={() => onToggle(null)}
       className={`relative cursor-pointer rounded-xl overflow-hidden shadow-md transition-all duration-300 select-none ${
@@ -26,6 +28,12 @@ function Tile({ finish, active, onToggle, style = {} }) {
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+      
+      {/* Zoom Icon */}
+      <div className={`absolute top-2 right-2 bg-black/40 backdrop-blur-sm p-1 rounded-full text-white/90 transition-all duration-300 ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+        <Maximize2 size={12} />
+      </div>
+
       <div className={`absolute bottom-0 left-0 right-0 px-1.5 py-1.5 transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'}`}>
         <span className="text-white font-bold text-[8px] sm:text-[9px] md:text-[10px] leading-tight tracking-wide block truncate">
           {finish.name}
@@ -37,8 +45,10 @@ function Tile({ finish, active, onToggle, style = {} }) {
 
 export default function Materials() {
   const [active, setActive] = useState(null);
+  const [modalData, setModalData] = useState(null);
 
   const toggle = (finish) => setActive(finish);
+  const enlarge = (finish) => setModalData({ image: finish.image, title: finish.name, subtitle: finish.description });
 
   return (
     <section id="materiali" className="py-10 md:py-32 bg-transparent text-white relative overflow-hidden dark-section">
@@ -66,7 +76,6 @@ export default function Materials() {
           </div>
         </div>
 
-        {/* Mobile: 3 colonne (18÷3=6 righe esatte), ultimo centrato */}
         <div className="sm:hidden">
           <div className="grid grid-cols-3 gap-1.5">
             {finishes.slice(0, -1).map((finish) => (
@@ -75,6 +84,7 @@ export default function Materials() {
                 finish={finish}
                 active={active}
                 onToggle={toggle}
+                onEnlarge={enlarge}
                 style={{ aspectRatio: '1 / 1.3' }}
               />
             ))}
@@ -84,6 +94,7 @@ export default function Materials() {
               finish={lastTile}
               active={active}
               onToggle={toggle}
+              onEnlarge={enlarge}
               style={{ aspectRatio: '1 / 1.3', width: 'calc(33.333% - 5px)' }}
             />
           </div>
@@ -98,6 +109,7 @@ export default function Materials() {
                 finish={finish}
                 active={active}
                 onToggle={toggle}
+                onEnlarge={enlarge}
                 style={{ aspectRatio: '1 / 1.4' }}
               />
             ))}
@@ -109,6 +121,7 @@ export default function Materials() {
                 finish={finish}
                 active={active}
                 onToggle={toggle}
+                onEnlarge={enlarge}
                 style={{ aspectRatio: '1 / 1.4' }}
               />
             ))}
@@ -119,12 +132,23 @@ export default function Materials() {
               finish={lastTile}
               active={active}
               onToggle={toggle}
+              onEnlarge={enlarge}
               style={{ aspectRatio: '1 / 1.4', width: 'calc(11.11% - 4px)' }}
             />
           </div>
         </div>
 
       </div>
+
+      {modalData && (
+        <ImageModal
+          isOpen={!!modalData}
+          onClose={() => setModalData(null)}
+          imageSrc={modalData.image}
+          title={modalData.title}
+          subtitle={modalData.subtitle}
+        />
+      )}
     </section>
   );
 }

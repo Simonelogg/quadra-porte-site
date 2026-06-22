@@ -1,25 +1,45 @@
-import React from 'react';
-import { MessageSquareText, Ruler, Truck, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MessageSquareText, Ruler, Truck, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { collections } from '../data';
 
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % collections.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       
-      {/* Absolute Background Image */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1920&q=80" 
-          alt="Quadra Porte Hero" 
-          className="absolute inset-0 w-full h-full object-cover scale-105 animate-[slowZoom_20s_ease-in-out_infinite_alternate]"
-        />
+      {/* Absolute Background Image Slider */}
+      <div className="absolute inset-0 w-full h-full z-0 bg-black">
+        <div 
+          className="flex w-full h-full transition-transform duration-1000 ease-in-out"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {collections.map((collection) => (
+            <div key={collection.id} className="relative min-w-full h-full">
+              <img 
+                src={collection.image} 
+                alt={collection.name} 
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
         {/* Base dark overlay for text legibility */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/50 z-10" />
         
         {/* Smooth Fusion Gradient: Fades the image seamlessly into the pure black 3D space below */}
         <div className="absolute inset-x-0 bottom-0 h-[40vh] bg-gradient-to-t from-[#000000] via-[#000000]/80 to-transparent z-10" />
         
         {/* Top shadow for header contrast */}
-        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/80 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/80 to-transparent z-10" />
       </div>
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto text-center flex flex-col items-center anim-fade-up px-4 pt-10">
@@ -40,6 +60,22 @@ export default function Hero() {
             Esplora Collezioni
           </a>
         </div>
+      </div>
+
+      {/* Pagination Bullets */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+        {collections.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? 'bg-[#ea5d1a] scale-125' 
+                : 'bg-white/50 hover:bg-white/80'
+            }`}
+            aria-label={`Vai alla slide ${index + 1}`}
+          />
+        ))}
       </div>
 
       {/* ── ADVANCED TECH SERVICES HUD (Bottom Right) ── */}
