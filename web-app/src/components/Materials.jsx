@@ -70,7 +70,7 @@ export default function Materials() {
               </div>
             ) : (
               <p className="text-white/30 text-[11px] italic">
-                {('ontouchstart' in window) ? 'Tocca una finitura per scoprirla.' : 'Passa sopra una finitura per scoprirla.'}
+                {window.matchMedia('(pointer: coarse)').matches ? 'Tocca una finitura per scoprirla.' : 'Passa sopra una finitura per scoprirla.'}
               </p>
             )}
           </div>
